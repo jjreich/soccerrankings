@@ -5,5 +5,12 @@
   <%= @team.name %>
 </p>
 
+<% @team.players.each do |player| %>
+  <%= link_to player do %>
+  	<%= player.firstName %> <%= player.lastName %>
+  <% end %>
+</br>
+<% end %>
+
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>

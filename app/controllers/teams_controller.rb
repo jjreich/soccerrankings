@@ -15,10 +15,13 @@ class TeamsController < ApplicationController
   # GET /teams/new
   def new
     @team = Team.new
+    @players = Player.all 
   end
 
   # GET /teams/1/edit
   def edit
+    @players = Player.all 
+
   end
 
   # POST /teams
@@ -69,6 +72,6 @@ class TeamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
-      params.require(:team).permit(:name)
+      params.require(:team).permit(:name, :player_ids => [])
     end
 end
