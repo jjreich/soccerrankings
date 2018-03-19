@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  juggling: 1
+  dribbline: 1
+  receiving: 1
+  heading: 1
+  shooting: 1
+  longBalls: 1
+
+two:
+  juggling: 1
+  dribbline: 1
+  receiving: 1
+  heading: 1
+  shooting: 1
+  longBalls: 1

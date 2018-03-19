@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Player Ball Skills</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Juggling</th>
+      <th>Dribbling</th>
+      <th>Receiving</th>
+      <th>Heading</th>
+      <th>Shooting</th>
+      <th>Longballs</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @player_ball_skills.each do |player_ball_skill| %>
+      <tr>
+        <td><%= player_ball_skill.juggling %></td>
+        <td><%= player_ball_skill.dribbling %></td>
+        <td><%= player_ball_skill.receiving %></td>
+        <td><%= player_ball_skill.heading %></td>
+        <td><%= player_ball_skill.shooting %></td>
+        <td><%= player_ball_skill.longBalls %></td>
+        <td><%= link_to 'Show', player_ball_skill %></td>
+        <td><%= link_to 'Edit', edit_player_ball_skill_path(player_ball_skill) %></td>
+        <td><%= link_to 'Destroy', player_ball_skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Player Ball Skill', new_player_ball_skill_path %>

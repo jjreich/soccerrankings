@@ -1,0 +1,17 @@
+
+<%= simple_form_for(@player_ball_skill) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :juggling %>
+    <%= f.input :dribbling %>
+    <%= f.input :receiving %>
+    <%= f.input :heading %>
+    <%= f.input :shooting %>
+    <%= f.input :longBalls %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

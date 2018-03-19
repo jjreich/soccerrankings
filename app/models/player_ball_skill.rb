@@ -1,0 +1,2 @@
+class PlayerBallSkill < ApplicationRecord
+end
