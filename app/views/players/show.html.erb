@@ -1,12 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>First Name:</strong>
-  <%= @player.firstName %>
-</p>
-
-  <strong>Last Name:</strong>
-  <%= @player.lastName %>
+  <strong><%= @player.firstName %> <%= @player.lastName %></strong>
 </p>
 
 <p>
@@ -15,9 +10,13 @@
 </p>
 
 <p>
-  <strong>Dob:</strong>
+  <strong>DOB:</strong>
   <%= @player.dob %>
 </p>
+
+
+
+<%= link_to 'New Player Ball Skill', new_player_ball_skill_path(:player_id => @player.id) %>
 
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>

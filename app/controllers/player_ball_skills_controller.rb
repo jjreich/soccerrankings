@@ -14,7 +14,7 @@ class PlayerBallSkillsController < ApplicationController
 
   # GET /player_ball_skills/new
   def new
-    @player_ball_skill = PlayerBallSkill.new
+    @player_ball_skill = PlayerBallSkill.new(:player_id => params[:player_id])
   end
 
   # GET /player_ball_skills/1/edit
@@ -69,6 +69,6 @@ class PlayerBallSkillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_ball_skill_params
-      params.require(:player_ball_skill).permit(:juggling, :dribbling, :receiving, :heading, :shooting, :longBalls)
+      params.require(:player_ball_skill).permit(:juggling, :dribbling, :receiving, :heading, :shooting, :longBalls, :player_id)
     end
 end

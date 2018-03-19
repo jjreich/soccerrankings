@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Player_ID</th>      
       <th>Juggling</th>
       <th>Dribbling</th>
       <th>Receiving</th>
@@ -18,6 +19,7 @@
   <tbody>
     <% @player_ball_skills.each do |player_ball_skill| %>
       <tr>
+        <td><%= player_ball_skill.player_id %></td>
         <td><%= player_ball_skill.juggling %></td>
         <td><%= player_ball_skill.dribbling %></td>
         <td><%= player_ball_skill.receiving %></td>
