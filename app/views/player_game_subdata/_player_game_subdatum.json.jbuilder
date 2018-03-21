@@ -1,0 +1,2 @@
+json.extract! player_game_subdatum, :id, :minutes, :attemptedPasses, :completedPasses, :corners, :crosses, :clearings, :longBalls, :thruBalls, :keyPasses, :attemptedFirstTouches, :successfulFirstTouches, :dribbles, :dispossessed, :fouled, :shots, :shotsOnTarget, :assists, :goals, :fiftyFiftiesWon, :tackles, :dribblePast, :interceptions, :interventions, :blocks, :ownGoals, :saves, :fouls, :yellowCards, :redCards, :created_at, :updated_at
+json.url player_game_subdatum_url(player_game_subdatum, format: :json)

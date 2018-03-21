@@ -1,0 +1,40 @@
+
+<%= simple_form_for(@player_game_subdatum) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :minutes %>
+    <%= f.input :attemptedPasses %>
+    <%= f.input :completedPasses %>
+    <%= f.input :corners %>
+    <%= f.input :crosses %>
+    <%= f.input :clearings %>
+    <%= f.input :longBalls %>
+    <%= f.input :thruBalls %>
+    <%= f.input :keyPasses %>
+    <%= f.input :attemptedFirstTouches %>
+    <%= f.input :successfulFirstTouches %>
+    <%= f.input :dribbles %>
+    <%= f.input :dispossessed %>
+    <%= f.input :fouled %>
+    <%= f.input :shots %>
+    <%= f.input :shotsOnTarget %>
+    <%= f.input :assists %>
+    <%= f.input :goals %>
+    <%= f.input :fiftyFiftiesWon %>
+    <%= f.input :tackles %>
+    <%= f.input :dribblePast %>
+    <%= f.input :interceptions %>
+    <%= f.input :interventions %>
+    <%= f.input :blocks %>
+    <%= f.input :ownGoals %>
+    <%= f.input :saves %>
+    <%= f.input :fouls %>
+    <%= f.input :yellowCards %>
+    <%= f.input :redCards %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

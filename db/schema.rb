@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180320202039) do
+ActiveRecord::Schema.define(version: 20180321214353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,40 @@ ActiveRecord::Schema.define(version: 20180320202039) do
     t.datetime "updated_at", null: false
     t.integer "player_id"
     t.index ["player_id"], name: "index_player_ball_skills_on_player_id"
+  end
+
+  create_table "player_game_subdata", force: :cascade do |t|
+    t.float "minutes"
+    t.integer "attemptedPasses"
+    t.integer "completedPasses"
+    t.integer "corners"
+    t.integer "crosses"
+    t.integer "clearings"
+    t.integer "longBalls"
+    t.integer "thruBalls"
+    t.integer "keyPasses"
+    t.integer "attemptedFirstTouches"
+    t.integer "successfulFirstTouches"
+    t.integer "dribbles"
+    t.integer "dispossessed"
+    t.integer "fouled"
+    t.integer "shots"
+    t.integer "shotsOnTarget"
+    t.integer "assists"
+    t.integer "goals"
+    t.integer "fiftyFiftiesWon"
+    t.integer "tackles"
+    t.integer "dribblePast"
+    t.integer "interceptions"
+    t.integer "interventions"
+    t.integer "blocks"
+    t.integer "ownGoals"
+    t.integer "saves"
+    t.integer "fouls"
+    t.integer "yellowCards"
+    t.integer "redCards"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "players", force: :cascade do |t|

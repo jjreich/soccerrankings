@@ -1,0 +1,63 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  minutes: 1.5
+  attemptedPasses: 1
+  completedPasses: 1
+  corners: 1
+  crosses: 1
+  clearings: 1
+  longBalls: 1
+  thruBalls: 1
+  keyPasses: 1
+  attemptedFirstTouches: 1
+  successfulFirstTouches: 1
+  dribbles: 1
+  dispossessed: 1
+  fouled: 1
+  shots: 1
+  shotsOnTarget: 1
+  assists: 1
+  goals: 1
+  fiftyFiftiesWon: 1
+  tackles: 1
+  dribblePast: 1
+  interceptions: 1
+  interventions: 1
+  blocks: 1
+  ownGoals: 1
+  saves: 1
+  fouls: 1
+  yellowCards: 1
+  redCards: 1
+
+two:
+  minutes: 1.5
+  attemptedPasses: 1
+  completedPasses: 1
+  corners: 1
+  crosses: 1
+  clearings: 1
+  longBalls: 1
+  thruBalls: 1
+  keyPasses: 1
+  attemptedFirstTouches: 1
+  successfulFirstTouches: 1
+  dribbles: 1
+  dispossessed: 1
+  fouled: 1
+  shots: 1
+  shotsOnTarget: 1
+  assists: 1
+  goals: 1
+  fiftyFiftiesWon: 1
+  tackles: 1
+  dribblePast: 1
+  interceptions: 1
+  interventions: 1
+  blocks: 1
+  ownGoals: 1
+  saves: 1
+  fouls: 1
+  yellowCards: 1
+  redCards: 1
