@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @club_type.name %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @club_type.score %>
+</p>
+
+<%= link_to 'Edit', edit_club_type_path(@club_type) %> |
+<%= link_to 'Back', club_types_path %>

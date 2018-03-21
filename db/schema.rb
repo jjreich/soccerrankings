@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180319014008) do
+ActiveRecord::Schema.define(version: 20180320202039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "club_types", force: :cascade do |t|
+    t.string "name"
+    t.integer "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "player_ball_skills", force: :cascade do |t|
     t.integer "juggling"
@@ -47,6 +54,8 @@ ActiveRecord::Schema.define(version: 20180319014008) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "club_type_id"
+    t.index ["club_type_id"], name: "index_teams_on_club_type_id"
   end
 
 end

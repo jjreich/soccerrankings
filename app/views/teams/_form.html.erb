@@ -16,6 +16,14 @@
     <%= form.text_field :name, id: :team_name %>
   </div>
 
+  <div class="field">
+    Team Club Type / League
+    <%= collection_select(:team, :club_type_id, ClubType.all, :id, :name) %>
+    
+    <%= collection_check_boxes(:team, :player_ids, @players, :id, :firstName) %>
+
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
