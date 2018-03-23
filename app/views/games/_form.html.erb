@@ -1,0 +1,17 @@
+
+<%= simple_form_for(@game) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :dateTime %>
+    <%= f.input :location %>
+    <%= f.input :fieldType %>
+    <%= f.input :fieldConditions %>
+    <%= f.input :weather %>
+    <%= f.input :temperature %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

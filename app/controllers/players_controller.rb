@@ -16,7 +16,6 @@ class PlayersController < ApplicationController
   def new
     @player = Player.new
     @teams = Team.all 
-
   end
 
   # GET /players/1/edit

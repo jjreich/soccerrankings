@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Datetime:</strong>
+  <%= @game.dateTime %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @game.location %>
+</p>
+
+<p>
+  <strong>Fieldtype:</strong>
+  <%= @game.fieldType %>
+</p>
+
+<p>
+  <strong>Fieldconditions:</strong>
+  <%= @game.fieldConditions %>
+</p>
+
+<p>
+  <strong>Weather:</strong>
+  <%= @game.weather %>
+</p>
+
+<p>
+  <strong>Temperature:</strong>
+  <%= @game.temperature %>
+</p>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>
