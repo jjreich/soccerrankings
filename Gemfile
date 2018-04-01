@@ -14,6 +14,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
+gem 'sass', '<3.5'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -36,7 +37,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'simple_form'
 
-gem 'foundation-rails'
+gem 'foundation-rails', '>= 6.4.3'
 gem 'autoprefixer-rails'
 
 group :development, :test do

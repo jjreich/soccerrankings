@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong><%= @player.firstName %> <%= @player.lastName %></strong>
-</p>
+
+<H2><%= @player.firstName %> <%= @player.lastName %></H2>
+
 
 <p>
   <strong>Gender:</strong>
@@ -14,7 +14,9 @@
   <%= @player.dob %>
 </p>
 
+<%= render 'show_player_ball_skills', :this_player_id => @player.id %>
 
+<br/>
 
 <%= link_to 'New Player Ball Skill', new_player_ball_skill_path(:player_id => @player.id) %>
 

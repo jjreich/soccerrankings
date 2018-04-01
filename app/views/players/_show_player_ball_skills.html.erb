@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<% @player_ball_skill = PlayerBallSkill.find(this_player_id) %>
+
+<p>
+  <strong>Juggling:</strong>
+  <%= @player_ball_skill.juggling %>
+</p>
+
+<p>
+  <strong>Dribbling:</strong>
+  <%= @player_ball_skill.dribbling %>
+</p>
+
+<p>
+  <strong>Receiving:</strong>
+  <%= @player_ball_skill.receiving %>
+</p>
+
+<p>
+  <strong>Heading:</strong>
+  <%= @player_ball_skill.heading %>
+</p>
+
+<p>
+  <strong>Shooting:</strong>
+  <%= @player_ball_skill.shooting %>
+</p>
+
+<p>
+  <strong>Longballs:</strong>
+  <%= @player_ball_skill.longBalls %>
+</p>
+
+<%= link_to 'Edit', edit_player_ball_skill_path(@player_ball_skill) %> |
+<%= link_to 'Back', player_ball_skills_path %>
