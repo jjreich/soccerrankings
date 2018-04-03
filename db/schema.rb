@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321215827) do
+ActiveRecord::Schema.define(version: 20180403212217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 20180321215827) do
     t.integer "longBalls"
     t.integer "thruBalls"
     t.integer "keyPasses"
-    t.integer "attemptedFirstTouches"
-    t.integer "successfulFirstTouches"
+    t.integer "turnovers"
+    t.integer "offsides"
     t.integer "dribbles"
     t.integer "dispossessed"
     t.integer "fouled"
@@ -75,8 +75,8 @@ ActiveRecord::Schema.define(version: 20180321215827) do
     t.integer "tackles"
     t.integer "dribblePast"
     t.integer "interceptions"
-    t.integer "interventions"
-    t.integer "blocks"
+    t.integer "recoveries"
+    t.integer "blockedShots"
     t.integer "ownGoals"
     t.integer "saves"
     t.integer "fouls"
