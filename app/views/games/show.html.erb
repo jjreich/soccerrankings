@@ -30,5 +30,15 @@
   <%= @game.temperature %>
 </p>
 
+<p>
+  <H4>Teams</H4>
+  <% @game.teams.each do |team| %>
+    <%= link_to team do %>
+      <%= team.name %>
+    <% end %>
+  </br>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>

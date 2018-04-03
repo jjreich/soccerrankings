@@ -7,11 +7,14 @@
     <%= f.input :location %>
     <%= f.input :fieldType %>
     <%= f.input :fieldConditions %>
-    <%= f.input :weather %>
+    <%= f.input :weather, collection: ['cold', 'hot'] %>
     <%= f.input :temperature %>
+    <%= f.association :teams, as: :collection_select %>
+    <%= f.association :teams, as: :collection_select %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+
