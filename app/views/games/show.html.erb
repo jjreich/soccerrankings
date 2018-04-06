@@ -35,10 +35,38 @@
   <%= @game.home_team.name %>
 </p>
 
+<table>
+  <thead>
+    <tr>
+      <th>Player Names</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @game.home_team.players.each do |homePlayer| %>
+      <% homePlayer.firstName %> <% homePlayer.lastName %>
+    <% end %>
+  </tbody>
+</table>
+
 <p>
   <strong>Away Team:</strong>
   <%= @game.away_team.name %>
 </p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Player Names</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @game.away_team.players.each do |awayPlayer| %>
+      <% awayPlayer.firstName %> <% awayPlayer.lastName %>
+    <% end %>
+  </tbody>
+</table>
 
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
