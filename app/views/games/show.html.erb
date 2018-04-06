@@ -44,7 +44,9 @@
 
   <tbody>
     <% @game.home_team.players.each do |homePlayer| %>
-      <% homePlayer.firstName %> <% homePlayer.lastName %>
+      <tr>
+        <td><%= homePlayer.firstName %> <%= homePlayer.lastName %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>
@@ -63,7 +65,9 @@
 
   <tbody>
     <% @game.away_team.players.each do |awayPlayer| %>
-      <% awayPlayer.firstName %> <% awayPlayer.lastName %>
+      <tr>
+        <td><%= awayPlayer.firstName %> <%= awayPlayer.lastName %></td>
+      </tr> 
     <% end %>
   </tbody>
 </table>
