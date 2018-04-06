@@ -1,5 +1,6 @@
 class Game < ApplicationRecord
-	has_and_belongs_to_many :teams
+	belongs_to :home_team, class_name: "Team"
+	belongs_to :away_team, class_name: "Team"
 
-	accepts_nested_attributes_for :teams
+	has_many :player_game_subdata
 end

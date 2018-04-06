@@ -31,14 +31,15 @@
 </p>
 
 <p>
-  <H4>Teams</H4>
-  <% @game.teams.each do |team| %>
-    <%= link_to team do %>
-      <%= team.name %>
-    <% end %>
-  </br>
-  <% end %>
+  <strong>Home Team:</strong>
+  <%= @game.home_team.name %>
 </p>
+
+<p>
+  <strong>Away Team:</strong>
+  <%= @game.away_team.name %>
+</p>
+
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>
