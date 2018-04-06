@@ -46,6 +46,7 @@
     <% @game.home_team.players.each do |homePlayer| %>
       <tr>
         <td><%= homePlayer.firstName %> <%= homePlayer.lastName %></td>
+        <td><%= link_to 'Player Stats', new_player_game_subdatum_path(:player_id => homePlayer.id, :team_id => @game.home_team.id, :game_id => @game.id) %></td>
       </tr>
     <% end %>
   </tbody>

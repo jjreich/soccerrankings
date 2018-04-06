@@ -1,6 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+    <%= Player.find(@player_game_subdatum.player_id).firstName %>
+</p>
+
+<p>
+    <%= Team.find(@player_game_subdatum.team_id).name %>
+</p>
+
+<p>
+    <%= Game.find(@player_game_subdatum.game_id).dateTime %>
+</p>
+
+<p>
   <strong>Minutes:</strong>
   <%= @player_game_subdatum.minutes %>
 </p>
