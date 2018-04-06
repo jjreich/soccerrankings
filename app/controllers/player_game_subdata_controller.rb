@@ -19,6 +19,7 @@ class PlayerGameSubdataController < ApplicationController
 
   # GET /player_game_subdata/1/edit
   def edit
+   
   end
 
   # POST /player_game_subdata
