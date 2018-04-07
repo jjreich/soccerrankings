@@ -100,6 +100,6 @@ class PlayerGameSubdatum < ApplicationRecord
 
    		offensiveRating = passingRating + significantPassingRating + keyPassRating + turnoverRating + dribbleRating + dispossessedRating + fouledRating + shotsRating + shotsOnTargetRating + goalRating + assistRating + offsideRating
     	defensiveRating = fiftyFiftyRating + tackleRating + dribblePastRating + interceptionRating + recoveriesRating + blockedShotRating + ownGoalRating + foulsRating + savesRating
-    	gameRating = opponentRating + offensiveRating + defensiveRating
+    	gameRating = opponentRating + offensiveRating + defensiveRating +gameScoreBonus
     end
 end
