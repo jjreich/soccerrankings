@@ -9,8 +9,13 @@
     <%= f.input :fieldConditions %>
     <%= f.input :weather, collection: ['cold', 'hot'] %>
     <%= f.input :temperature %>
+    <%= f.input :home_team_score %>
+    <%= f.input :away_team_score %>
+    <%= f.input :total_min_played %>
+    <%= f.input :game_type %>
     <%= f.association :home_team %>
     <%= f.association :away_team %>
+
   </div>
 
   <div class="form-actions">

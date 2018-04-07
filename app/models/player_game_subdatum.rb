@@ -20,6 +20,40 @@ class PlayerGameSubdatum < ApplicationRecord
     	opponent = Team.find(opponent_id)
     end
 
+    def gameScoreBonus
+        game = Game.find(game_id)
+
+        if game.home_team_id == team_id
+            homeTeam = true
+            awayTeam = false
+        else
+            homeTeam = false
+            awayTeam = true
+        end
+
+        if (homeTeam && game.away_team_score == 0)
+            cleanSheetPartial = 2
+        elsif (awayTeam && game.home_team_score == 0)
+            cleanSheetPartial = 2
+        else
+            cleanSheetPartial = 0
+        end
+
+        if (game.away_team_score == game.home_team_score)
+            finalScorePartial = 1
+        elsif ((homeTeam && game.home_team_score > game.away_team_score) || (awayTeam && game.away_team_score > game.home_team_score))
+            finalScorePartial = 3
+        elsif ((awayTeam && game.home_team_score > game.away_team_score) || (homeTeam && game.away_team_score > game.home_team_score))
+            finalScorePartial = 0
+        end
+        
+        if (game.total_min_played > 0)    
+            gameScoreBonus = (minutes / game.total_min_played) * (cleanSheetPartial + finalScorePartial)
+        else
+            gameScoreBonus = 0
+        end
+    end
+
     def gameRating
     	opponentRating = opponent.club_type.score
 
