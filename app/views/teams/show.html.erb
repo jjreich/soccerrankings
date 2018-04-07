@@ -6,15 +6,15 @@
 </p>
 
 </br>
-<p>
-	<H4>Players</H4>
-	<% @team.players.each do |player| %>
-	  <%= link_to player do %>
-	  	<%= player.firstName %> <%= player.lastName %>
-	  <% end %>
-	</br>
-	<% end %>
-</p>
+
+<H4>Players</H4>
+
+<% @team.players.each do |player| %>
+  <%= link_to player do %>
+  	<p><%= player.firstName %> <%= player.lastName %></p>
+  <% end %>
+<% end %>
+
 
 </br>
 

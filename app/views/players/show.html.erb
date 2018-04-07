@@ -14,6 +14,11 @@
   <%= @player.dob %>
 </p>
 
+<p>
+  <strong>Average Rating:</strong>
+  <%= @player.fiveGameAverage %>
+</p>
+
 <%= render 'show_player_ball_skills', :this_player_id => @player.id %>
 
 <br/>

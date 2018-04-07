@@ -63,7 +63,7 @@ class PlayerGameSubdatum < ApplicationRecord
     	turnoverRating = turnovers * -0.3
     	dribbleRating = dribbles * 0.3
     	dispossessedRating = dispossessed * -0.3
-    	fouledRating = fouled * 1
+    	fouledRating = fouled * 0.5
     	shotsRating = (shots - shotsOnTarget) * -0.1
     	shotsOnTargetRating = (shotsOnTarget-goals) * 0.2
     	
@@ -94,8 +94,8 @@ class PlayerGameSubdatum < ApplicationRecord
     	recoveriesRating = recoveries * 0.2
     	blockedShotRating = blockedShots * 0.5
     	ownGoalRating = ownGoals * -5.0
-   		savesRating = saves * 2
-   		foulsRating = (fouls * -1) + (yellowCards * -5) + (redCards * -10)
+   		savesRating = saves * 1.5
+   		foulsRating = (fouls * -0.5) + (yellowCards * -3) + (redCards * -6)
    		offsideRating = offsides * -0.5
 
    		offensiveRating = passingRating + significantPassingRating + keyPassRating + turnoverRating + dribbleRating + dispossessedRating + fouledRating + shotsRating + shotsOnTargetRating + goalRating + assistRating + offsideRating
