@@ -58,7 +58,7 @@ class PlayerGameSubdatum < ApplicationRecord
     	opponentRating = opponent.club_type.score
 
     	passingRating = passingPercentage * completedPasses * 0.002
-    	significantPassingRating = (corners + crosses + clearings + longBalls + thruBalls) * 0.5
+    	significantPassingRating = (corners + crosses + (clearings * 0.5) + (longBalls * 0.5) + thruBalls) * 0.5
     	keyPassRating = keyPasses * 1
     	turnoverRating = turnovers * -0.3
     	dribbleRating = dribbles * 0.3
