@@ -7,7 +7,22 @@ class PlayerGameSubdatum < ApplicationRecord
         end
     end
 
+    def opponent
+
+    	game = Game.find(game_id)
+    	
+    	if game.home_team_id == team_id
+    		opponent_id = game.away_team_id
+    	else
+    		opponent_id = game.home_team_id
+    	end
+
+    	opponent = Team.find(opponent_id)
+    end
+
     def gameRating
+    	opponentRating = opponent.club_type.score
+
     	passingRating = passingPercentage * completedPasses * 0.002
     	significantPassingRating = (corners + crosses + clearings + longBalls + thruBalls) * 0.5
     	keyPassRating = keyPasses * 1
@@ -51,6 +66,6 @@ class PlayerGameSubdatum < ApplicationRecord
 
    		offensiveRating = passingRating + significantPassingRating + keyPassRating + turnoverRating + dribbleRating + dispossessedRating + fouledRating + shotsRating + shotsOnTargetRating + goalRating + assistRating + offsideRating
     	defensiveRating = fiftyFiftyRating + tackleRating + dribblePastRating + interceptionRating + recoveriesRating + blockedShotRating + ownGoalRating + foulsRating + savesRating
-    	gameRating = offensiveRating + defensiveRating
+    	gameRating = opponentRating + offensiveRating + defensiveRating
     end
 end
