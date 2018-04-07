@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180406192302) do
+ActiveRecord::Schema.define(version: 20180407023042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,34 +52,34 @@ ActiveRecord::Schema.define(version: 20180406192302) do
 
   create_table "player_game_subdata", force: :cascade do |t|
     t.float "minutes"
-    t.integer "attemptedPasses"
-    t.integer "completedPasses"
-    t.integer "corners"
-    t.integer "crosses"
-    t.integer "clearings"
-    t.integer "longBalls"
-    t.integer "thruBalls"
-    t.integer "keyPasses"
-    t.integer "turnovers"
-    t.integer "offsides"
-    t.integer "dribbles"
-    t.integer "dispossessed"
-    t.integer "fouled"
-    t.integer "shots"
-    t.integer "shotsOnTarget"
-    t.integer "assists"
-    t.integer "goals"
-    t.integer "fiftyFiftiesWon"
-    t.integer "tackles"
-    t.integer "dribblePast"
-    t.integer "interceptions"
-    t.integer "recoveries"
-    t.integer "blockedShots"
-    t.integer "ownGoals"
-    t.integer "saves"
-    t.integer "fouls"
-    t.integer "yellowCards"
-    t.integer "redCards"
+    t.integer "attemptedPasses", default: 0
+    t.integer "completedPasses", default: 0
+    t.integer "corners", default: 0
+    t.integer "crosses", default: 0
+    t.integer "clearings", default: 0
+    t.integer "longBalls", default: 0
+    t.integer "thruBalls", default: 0
+    t.integer "keyPasses", default: 0
+    t.integer "turnovers", default: 0
+    t.integer "offsides", default: 0
+    t.integer "dribbles", default: 0
+    t.integer "dispossessed", default: 0
+    t.integer "fouled", default: 0
+    t.integer "shots", default: 0
+    t.integer "shotsOnTarget", default: 0
+    t.integer "assists", default: 0
+    t.integer "goals", default: 0
+    t.integer "fiftyFiftiesWon", default: 0
+    t.integer "tackles", default: 0
+    t.integer "dribblePast", default: 0
+    t.integer "interceptions", default: 0
+    t.integer "recoveries", default: 0
+    t.integer "blockedShots", default: 0
+    t.integer "ownGoals", default: 0
+    t.integer "saves", default: 0
+    t.integer "fouls", default: 0
+    t.integer "yellowCards", default: 0
+    t.integer "redCards", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "player_id"
