@@ -33,7 +33,7 @@ class PlayerGameSubdatum < ApplicationRecord
     	elsif goals==1
     		goalRating = 3
     	elsif goals==2
-    		goalRating = 4
+    		goalRating = 7
     	elsif goals>2
     		goalRating = 7 + (goals-2)*5
     	end
