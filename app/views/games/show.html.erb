@@ -75,6 +75,14 @@
     <% @game.away_team.players.each do |awayPlayer| %>
       <tr>
         <td><%= awayPlayer.firstName %> <%= awayPlayer.lastName %></td>
+        <td>
+          <% playGameTest = PlayerGameSubdatum.where(:player_id => awayPlayer.id, :team_id => @game.away_team.id, :game_id => @game.id).first %>
+          <% if playGameTest.present? %>
+            <%= link_to 'Edit Player Stats', edit_player_game_subdatum_path(playGameTest.id) %>
+          <% else %> 
+            <%= link_to 'Add Player Stats', new_player_game_subdatum_path(:player_id => awayPlayer.id, :team_id => @game.away_team.id, :game_id => @game.id) %>
+          <% end %>
+        </td>
       </tr> 
     <% end %>
   </tbody>
