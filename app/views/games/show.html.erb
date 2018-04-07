@@ -35,7 +35,7 @@
   <%= @game.home_team.name %>
 </p>
 
-<table>
+<table id="playerData" class="display" style="width:100%">
   <thead>
     <tr>
       <th>Player</th>
@@ -128,3 +128,9 @@
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>
+
+<script>
+  $(document).ready(function() {
+      $('#playerData').DataTable();
+  } );
+</script>
