@@ -50,8 +50,6 @@
     <tr>
       <th>Player</th>
       <th>Min</th>
-      <th>Opponent Rating</th>
-      <th>Game Score Bonus</th>
       <th>Game Rating</th>
       <th>Passes Att</th>
       <th>Passes Comp</th>
@@ -69,9 +67,7 @@
         <td><%= homePlayer.firstName %> <%= homePlayer.lastName %></td>
           <% playerGameStats = PlayerGameSubdatum.where(:player_id => homePlayer.id, :team_id => @game.home_team.id, :game_id => @game.id).first %>
         <% if playerGameStats.present? %>
-          <td><%= playerGameStats.minutes %></td>
-          <td><%= playerGameStats.opponent.club_type.score %></td>
-          <td><%= playerGameStats.gameScoreBonus %></td>          
+          <td><%= playerGameStats.minutes %></td>          
           <td><%= number_with_precision(playerGameStats.gameRating, :precision => 2) %></td>          
           <td><%= playerGameStats.attemptedPasses %></td>
           <td><%= playerGameStats.completedPasses %></td>
@@ -81,7 +77,16 @@
           <td><%= playerGameStats.goals %></td>
           <td><%= playerGameStats.assists %></td>
           <td><%= link_to 'Edit Player Stats', edit_player_game_subdatum_path(playerGameStats.id) %></td>
-        <% else %> 
+        <% else %>
+          <td></td> 
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
           <td><%= link_to 'Add Player Stats', new_player_game_subdatum_path(:player_id => homePlayer.id, :team_id => @game.home_team.id, :game_id => @game.id) %></td>
         <% end %>
       </tr>
@@ -98,8 +103,6 @@
     <tr>
       <th>Player</th>
       <th>Min</th>
-      <th>Opponent Rating</th>
-      <th>Game Score Bonus</th>
       <th>Game Rating</th>
       <th>Passes Att</th>
       <th>Passes Comp</th>
@@ -119,8 +122,6 @@
         <% playerGameStats = PlayerGameSubdatum.where(:player_id => awayPlayer.id, :team_id => @game.away_team.id, :game_id => @game.id).first %>
         <% if playerGameStats.present? %>
           <td><%= playerGameStats.minutes %></td>
-          <td><%= playerGameStats.opponent.club_type.score %></td>
-          <td><%= playerGameStats.opponent.club_type.score %></td>
           <td><%= number_with_precision(playerGameStats.gameRating, :precision => 2) %></td>          
           <td><%= playerGameStats.attemptedPasses %></td>
           <td><%= playerGameStats.completedPasses %></td>
@@ -131,6 +132,15 @@
           <td><%= playerGameStats.assists %></td>
           <td><%= link_to 'Edit Player Stats', edit_player_game_subdatum_path(playerGameStats.id) %></td>
         <% else %> 
+          <td></td> 
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
           <td><%= link_to 'Add Player Stats', new_player_game_subdatum_path(:player_id => awayPlayer.id, :team_id => @game.away_team.id, :game_id => @game.id) %><td/>
         <% end %>
       </tr> 
