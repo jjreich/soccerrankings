@@ -16,9 +16,28 @@ class PlayerGameSubdatum < ApplicationRecord
     	dispossessedRating = dispossessed * -0.3
     	fouledRating = fouled * 1
     	shotsRating = (shots - shotsOnTarget) * -0.1
-    	shotsOnTargetRating = shotsOnTarget * 0.2
-    	assistRating = assists * 3
-    	goalRating = goals * 5
+    	shotsOnTargetRating = (shotsOnTarget-goals) * 0.2
+    	
+    	if assists==0
+    		assistRating=0
+    	elsif assists==1
+    		assistRating = 2
+    	elsif assists==2
+    		assistRating = 5
+    	elsif assists>2
+    		assistRating = 5 + (assists-2)*4
+    	end	
+
+    	if goals==0
+    		goalRating=0
+    	elsif goals==1
+    		goalRating = 3
+    	elsif goals==2
+    		goalRating = 4
+    	elsif goals>2
+    		goalRating = 7 + (goals-2)*5
+    	end
+    		
     	fiftyFiftyRating = fiftyFiftiesWon * 0.3
     	tackleRating = tackles * 0.6
     	dribblePastRating = dribblePast * -0.75
