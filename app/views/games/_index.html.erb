@@ -28,7 +28,7 @@
         <td><%= game.temperature %></td>
         <td><%= game.home_team.name %></td>
         <td><%= game.away_team.name %></td>
-        <td><%= link_to 'Show', game %></td>
+        <td><%= link_to 'Show', game, :class => "", remote: true %></td>
         <td><%= link_to 'Edit', edit_game_path(game) %></td>
         <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

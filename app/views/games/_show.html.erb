@@ -80,7 +80,7 @@
           <td><%= playerGameStats.shotsOnTarget %></td>
           <td><%= playerGameStats.goals %></td>
           <td><%= playerGameStats.assists %></td>
-          <td><%= link_to 'Edit Player Stats', edit_player_game_subdatum_path(playerGameStats.id) %></td>
+          <td><%= link_to 'Edit Player Stats', edit_player_game_subdatum_path(playerGameStats.id), :class => "", remote: true %></td>
         <% else %>
           <td></td> 
           <td></td>
@@ -91,7 +91,7 @@
           <td></td>
           <td></td>
           <td></td>
-          <td><%= link_to 'Add Player Stats', new_player_game_subdatum_path(:player_id => homePlayer.id, :team_id => @game.home_team.id, :game_id => @game.id) %></td>
+          <td><%= link_to 'Add Player Stats', new_player_game_subdatum_path(:player_id => homePlayer.id, :team_id => @game.home_team.id, :game_id => @game.id), :class => "", remote: true %></td>
         <% end %>
       </tr>
     <% end %>
@@ -138,7 +138,7 @@
           <td><%= playerGameStats.shotsOnTarget %></td>
           <td><%= playerGameStats.goals %></td>
           <td><%= playerGameStats.assists %></td>
-          <td><%= link_to 'Edit Player Stats', edit_player_game_subdatum_path(playerGameStats.id) %></td>
+          <td><%= link_to 'Edit Player Stats', edit_player_game_subdatum_path(playerGameStats.id), :class => "", remote: true %></td>
         <% else %> 
           <td></td> 
           <td></td>
@@ -149,7 +149,7 @@
           <td></td>
           <td></td>
           <td></td>
-          <td><%= link_to 'Add Player Stats', new_player_game_subdatum_path(:player_id => awayPlayer.id, :team_id => @game.away_team.id, :game_id => @game.id) %><td/>
+          <td><%= link_to 'Add Player Stats', new_player_game_subdatum_path(:player_id => awayPlayer.id, :team_id => @game.away_team.id, :game_id => @game.id), :class => "", remote: true %><td/>
         <% end %>
       </tr> 
     <% end %>
