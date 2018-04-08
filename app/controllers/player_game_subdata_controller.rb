@@ -70,6 +70,6 @@ class PlayerGameSubdataController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_game_subdatum_params
-      params.require(:player_game_subdatum).permit(:minutes, :attemptedPasses, :completedPasses, :corners, :crosses, :clearings, :longBalls, :thruBalls, :keyPasses, :turnovers, :offsides, :dribbles, :dispossessed, :fouled, :shots, :shotsOnTarget, :assists, :goals, :fiftyFiftiesWon, :tackles, :dribblePast, :interceptions, :recoveries, :blockedShots, :ownGoals, :saves, :fouls, :yellowCards, :redCards, :player_id, :game_id, :team_id)
+      params.require(:player_game_subdatum).permit(:minutes, :attemptedPasses, :completedPasses, :corners, :crosses, :clearings, :longBalls, :thruBalls, :keyPasses, :turnovers, :offsides, :dribbles, :dispossessed, :fouled, :shots, :shotsOnTarget, :assists, :goals, :fiftyFiftiesWon, :tackles, :dribblePast, :interceptions, :recoveries, :blockedShots, :ownGoals, :saves, :fouls, :yellowCards, :redCards, :player_id, :game_id, :team_id, :highCatches, :goalsAgainst, :started, :available)
     end
 end

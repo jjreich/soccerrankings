@@ -57,6 +57,12 @@ class PlayerGameSubdatum < ApplicationRecord
     def gameRating
     	opponentRating = opponent.club_type.score
 
+        if (started == true)
+            startedBonus = 1
+        else
+            startedBonus = 0
+        end 
+
     	passingRating = passingPercentage * completedPasses * 0.002
     	significantPassingRating = (corners + crosses + (clearings * 0.5) + (longBalls * 0.5) + thruBalls) * 0.5
     	keyPassRating = keyPasses * 1
@@ -95,11 +101,13 @@ class PlayerGameSubdatum < ApplicationRecord
     	blockedShotRating = blockedShots * 0.5
     	ownGoalRating = ownGoals * -5.0
    		savesRating = saves * 1.5
+        highCatchesRating = highCatches * 0.5
+        goalsAgainstRating = goalsAgainst * -2
    		foulsRating = (fouls * -0.5) + (yellowCards * -3) + (redCards * -6)
    		offsideRating = offsides * -0.5
 
    		offensiveRating = passingRating + significantPassingRating + keyPassRating + turnoverRating + dribbleRating + dispossessedRating + fouledRating + shotsRating + shotsOnTargetRating + goalRating + assistRating + offsideRating
-    	defensiveRating = fiftyFiftyRating + tackleRating + dribblePastRating + interceptionRating + recoveriesRating + blockedShotRating + ownGoalRating + foulsRating + savesRating
-    	gameRating = opponentRating + offensiveRating + defensiveRating + gameScoreBonus
+    	defensiveRating = fiftyFiftyRating + tackleRating + dribblePastRating + interceptionRating + recoveriesRating + blockedShotRating + ownGoalRating + foulsRating + savesRating + goalsAgainstRating + highCatchesRating
+    	gameRating = opponentRating + offensiveRating + defensiveRating + gameScoreBonus + startedBonus
     end
 end
