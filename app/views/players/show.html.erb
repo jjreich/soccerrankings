@@ -16,7 +16,7 @@
 
 <p>
   <strong>Average Rating:</strong>
-  <%= @player.fiveGameAverage %>
+  <%= number_with_precision(@player.fiveGameAverage, :precision => 2) %>
 </p>
 
 <%= render 'show_player_ball_skills', :this_player_id => @player.id %>
