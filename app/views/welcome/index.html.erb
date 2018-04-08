@@ -1,4 +1,26 @@
-<h2>Hello World</h2>
-<p>
-  The time is now: <%= Time.now %>
-</p>
+<div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
+  <button class="menu-icon" type="button" data-toggle="example-menu"></button>
+  <div class="title-bar-title">Menu</div>
+</div>
+
+<div class="top-bar" id="example-menu">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">Soccer Statistics</li>
+      <li><%= link_to "Games", games_path, :class => "", remote: true %></li>
+      <li><%= link_to "Teams", teams_path, :class => "", remote: true %></li>
+      <li><%= link_to "Players", players_path, :class => "", remote: true %></li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li><input type="search" placeholder="Search"></li>
+      <li><button type="button" class="button">Search</button></li>
+    </ul>
+  </div>
+</div>
+
+<div id="applicationContent">
+
+
+</div>
