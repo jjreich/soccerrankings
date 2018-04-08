@@ -55,7 +55,12 @@ class PlayerGameSubdatum < ApplicationRecord
     end
 
     def gameRating
-    	opponentRating = opponent.club_type.score
+    	
+        if (minutes > 0)
+            opponentRating = opponent.club_type.score
+        else 
+            opponentRating = 0
+        end
 
         if (started == true)
             startedBonus = 1
