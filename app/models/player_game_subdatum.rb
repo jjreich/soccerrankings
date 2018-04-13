@@ -101,13 +101,13 @@ class PlayerGameSubdatum < ApplicationRecord
     	fiftyFiftyRating = fiftyFiftiesWon * 0.3
     	tackleRating = tackles * 0.6
     	dribblePastRating = dribblePast * -0.75
-    	interceptionRating = interceptions * 0.4
+    	interceptionRating = interceptions * 0.3
     	recoveriesRating = recoveries * 0.2
     	blockedShotRating = blockedShots * 0.5
     	ownGoalRating = ownGoals * -5.0
    		savesRating = saves * 1.5
         highCatchesRating = highCatches * 0.5
-        goalsAgainstRating = goalsAgainst * -2
+        goalsAgainstRating = goalsAgainst * -3
    		foulsRating = (fouls * -0.5) + (yellowCards * -3) + (redCards * -6)
    		offsideRating = offsides * -0.5
 
