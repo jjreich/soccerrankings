@@ -3,9 +3,9 @@ class Player < ApplicationRecord
 	has_many :player_game_subdata
 
 	def fiveGameAverage
-		played_game_ratings = PlayerGameSubdatum.where(:player_id => id)
+		played_game_ratings = PlayerGameSubdatum.where(:player_id => id).includes(:game).order("games.game_date_time desc")
 
-		player_game_count = PlayerGameSubdatum.where(:player_id => id).count
+		player_game_count = played_game_ratings.count
 
 		playerStatsTotal = 0
 		played_game_ratings.each do |playerStats|

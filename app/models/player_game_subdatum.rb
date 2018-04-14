@@ -1,4 +1,7 @@
 class PlayerGameSubdatum < ApplicationRecord
+    belongs_to :game
+    belongs_to :player
+
 	def passingPercentage
 		if (attemptedPasses>0)
         	completedPasses.to_f / attemptedPasses * 100
