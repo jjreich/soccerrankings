@@ -44,6 +44,70 @@
 
 </p>
 
+<ul class="tabs" data-tabs id="ratings-tabs">
+  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Summary</a></li>
+  <li class="tabs-title"><a data-tabs-target="panel2" href="#panel2">Defensive</a></li>
+  <li class="tabs-title"><a data-tabs-target="panel3" href="#panel3">Offensive</a></li>
+  <li class="tabs-title"><a data-tabs-target="panel4" href="#panel4">Passing</a></li>
+  <li class="tabs-title"><a data-tabs-target="panel5" href="#panel5">Detailed</a></li>  
+</ul>
+
+<div class="tabs-content" data-tabs-content="ratings-tabs">
+  <div class="tabs-panel is-active" id="panel1">
+    <table id="playerData" class="display" style="width:100%">
+      <thead>
+        <tr>
+          <th>Apps</th>
+          <th>Min</th>
+          <th>Goals</th>
+          <th>Assists</th>
+          <th>Yel</th>
+          <th>Red</th>
+          <th>SpG</th>
+          <th>PS%</th>
+          <th>Aerials Won</th>
+          <th>MotM</th>
+          <th>Rating</th>    
+        </tr>
+      </thead>
+
+      <tbody>
+          <tr>
+            <td>
+              <%= @player.player_game_subdata.count %> 
+            </td>
+            <td>
+              <%= @player.player_game_subdata.sum(:minutes) %>
+            </td>          
+            <td></td>          
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>    
+            <td></td>
+          </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="tabs-panel" id="panel2">
+    <p>Suspendisse dictum feugiat nisl ut dapibus.  Vivamus hendrerit arcu sed erat molestie vehicula. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor.  Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.</p>
+  </div>
+  <div class="tabs-panel" id="panel3">
+    <p>3.</p>
+  </div>
+  <div class="tabs-panel" id="panel4">
+    <p>4.</p>
+  </div>
+  <div class="tabs-panel" id="panel5">
+    <p>5.</p>
+  </div>
+</div>
+
 
 <%= render 'show_player_ball_skills', :this_player_id => @player.id %>
 
@@ -54,9 +118,8 @@
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>
 
-<ul class="tabs" data-tabs id="example-tabs">
-  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Tab 1</a></li>
-  <li class="tabs-title"><a data-tabs-target="panel2" href="#panel2">Tab 2</a></li>
-</ul>
+<script>
+  $(document).foundation();
+</script>
 
 
