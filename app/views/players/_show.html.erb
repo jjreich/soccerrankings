@@ -26,7 +26,7 @@
   <%= number_with_precision(@player.fiveGameAverage, :precision => 2) %>
 </p>
 
-<% played_game_ratings = PlayerGameSubdatum.where(:player_id => @player.id).includes(:game).order("games.game_date_time desc") %>
+<% played_game_ratings = PlayerGameSubdatum.where(:player_id => @player.id).includes(:game).order("games.game_date_time desc").limit(3) %>
 
 <% played_game_ratings.each do |rating| %>
   <%= rating.gameRating %>
