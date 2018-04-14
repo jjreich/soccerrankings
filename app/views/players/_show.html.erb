@@ -79,16 +79,32 @@
             <td>
               <%= @player.player_game_subdata.sum(:minutes) %>
             </td>          
-            <td></td>          
+            <td>
+              <%= @player.player_game_subdata.sum(:goals) %>
+            </td>          
+            <td>
+              <%= @player.player_game_subdata.sum(:assists) %>
+            </td>
+            <td>
+              <%= @player.player_game_subdata.sum(:yellowCards) %>
+            </td>
+            <td>
+              <%= @player.player_game_subdata.sum(:redCards) %>
+            </td>
+            <td>
+              <%= number_with_precision((@player.player_game_subdata.sum(:shots).to_f / @player.player_game_subdata.count), :precision => 2) %>
+            </td>
+            <td>
+              <%= number_with_precision((@player.player_game_subdata.sum(:completedPasses).to_f / @player.player_game_subdata.sum(:attemptedPasses) * 100), :precision => 2)
+               %>%
+            </td>
+            <td>
+              <%= @player.player_game_subdata.sum(:fiftyFiftiesWon) / @player.player_game_subdata.count %>
+            </td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>    
-            <td></td>
+            <td>
+              <%= number_with_precision(@player.twentyGameAverage, :precision => 2) %>
+            </td>    
           </tr>
       </tbody>
     </table>
