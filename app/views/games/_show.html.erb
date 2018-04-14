@@ -82,7 +82,7 @@
               <% imageName = "red_medium_down.png" %>
               <% imageAlt = "medium down" %>            
             <% elsif form_status < 0 %>
-              <% imageName = "red_slightliy_down.png" %>
+              <% imageName = "red_slightly_down.png" %>
               <% imageAlt = "very down" %>
             <% elsif form_status > 3 %>
               <% imageName = "green_very_up.png" %>
@@ -90,7 +90,7 @@
             <% elsif form_status > 1 %>
               <% imageName = "green_medium_up.png" %>
               <% imageAlt = "up" %>
-            <% elsif form_status > 0 %>
+            <% elsif form_status >= 0 %>
               <% imageName = "green_slightly_up.png" %>
               <% imageAlt = "slightly up" %>
             <% end %>
