@@ -29,17 +29,17 @@
 <% form_status = @player.fiveGameAverage - @player.twentyGameAverage %>
 
 <% if form_status < -3 %>
-  <%= image_tag("red_very_down.png", :size => "40x40", :alt => "very down") %>
+  <%= image_tag("red_very_down.png", :size => "20x20", :alt => "very down") %>
 <% elsif form_status < -1 %>
-  <%= image_tag("red_medium_down.png", :size => "40x40", :alt => "down") %>
+  <%= image_tag("red_medium_down.png", :size => "20x20", :alt => "down") %>
 <% elsif form_status < 0 %>
-  <%= image_tag("red_slightly_down.png", :size => "40x40", :alt => "slightly down") %>
+  <%= image_tag("red_slightly_down.png", :size => "20x20", :alt => "slightly down") %>
 <% elsif form_status > 3 %>
-  <%= image_tag("green_very_up.png", :size => "40x40", :alt => "very up") %>
+  <%= image_tag("green_very_up.png", :size => "20x20", :alt => "very up") %>
 <% elsif form_status > 1 %>
-  <%= image_tag("green_medium_up.png", :size => "40x40", :alt => "up") %>
+  <%= image_tag("green_medium_up.png", :size => "20x20", :alt => "up") %>
 <% elsif form_status > 0 %>
-  <%= image_tag("green_slightly_up.png", :size => "40x40", :alt => "slightly up") %>
+  <%= image_tag("green_slightly_up.png", :size => "20x20", :alt => "slightly up") %>
 <% end %>
 
 </p>
