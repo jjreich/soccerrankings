@@ -72,7 +72,33 @@
           <% playerGameStats = PlayerGameSubdatum.where(:player_id => homePlayer.id, :team_id => @game.home_team.id, :game_id => @game.id).first %>
         <% if playerGameStats.present? %>
           <td><%= playerGameStats.minutes %></td>          
-          <td><%= number_with_precision(playerGameStats.gameRating, :precision => 2) %></td>          
+          <td><%= number_with_precision(playerGameStats.gameRating, :precision => 2) %>
+            <% form_status = homePlayer.fiveGameAverage - homePlayer.twentyGameAverage %>
+
+            <% if form_status < -3 %>
+              <% imageName = "red_very_down.png" %>
+              <% imageAlt = "very down" %>
+            <% elsif form_status < -1 %>
+              <% imageName = "red_medium_down.png" %>
+              <% imageAlt = "medium down" %>            
+            <% elsif form_status < 0 %>
+              <% imageName = "red_slightliy_down.png" %>
+              <% imageAlt = "very down" %>
+            <% elsif form_status > 3 %>
+              <% imageName = "green_very_up.png" %>
+              <% imageAlt = "very up" %>
+            <% elsif form_status > 1 %>
+              <% imageName = "green_medium_up.png" %>
+              <% imageAlt = "up" %>
+            <% elsif form_status > 0 %>
+              <% imageName = "green_slightly_up.png" %>
+              <% imageAlt = "slightly up" %>
+            <% end %>
+
+            <% if imageName.present? %>
+              <%= image_tag(imageName, :size => "16x16", :alt => imageAlt) %>
+            <% end %>
+          </td>          
           <td><%= playerGameStats.attemptedPasses %></td>
           <td><%= playerGameStats.completedPasses %></td>
           <td><%= number_with_precision(playerGameStats.passingPercentage, :precision => 2) %>%</td>
