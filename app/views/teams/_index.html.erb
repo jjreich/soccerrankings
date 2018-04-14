@@ -15,7 +15,11 @@
     <% @teams.each do |team| %>
       <tr>
         <td><%= team.name %></td>
-        <td><%= team.club_type.name %></td>
+        <% if team.club_type.present? %>
+          <td><%= team.club_type.name %></td>
+        <% else %>
+          <td>Club Type</td>
+        <% end %>
         <td><%= link_to 'Show', team %></td>
         <td><%= link_to 'Edit', edit_team_path(team) %></td>
         <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
