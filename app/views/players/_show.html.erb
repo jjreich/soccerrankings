@@ -22,15 +22,14 @@
 </p>
 
 <p>
-  <strong>Average Rating:</strong>
+  <strong>Average 5 Game Rating:</strong>
   <%= number_with_precision(@player.fiveGameAverage, :precision => 2) %>
 </p>
 
-<% played_game_ratings = PlayerGameSubdatum.where(:player_id => @player.id).includes(:game).order("games.game_date_time desc").limit(3) %>
-
-<% played_game_ratings.each do |rating| %>
-  <%= rating.gameRating %>
-<% end %>
+<p>
+  <strong>Average 20 Game Rating:</strong>
+  <%= number_with_precision(@player.twentyGameAverage, :precision => 2) %>
+</p>
 
 <%= render 'show_player_ball_skills', :this_player_id => @player.id %>
 

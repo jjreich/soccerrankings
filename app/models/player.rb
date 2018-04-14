@@ -3,7 +3,7 @@ class Player < ApplicationRecord
 	has_many :player_game_subdata
 
 	def fiveGameAverage
-		played_game_ratings = PlayerGameSubdatum.where(:player_id => id).includes(:game).order("games.game_date_time desc")
+		played_game_ratings = PlayerGameSubdatum.where(:player_id => id).includes(:game).order("games.game_date_time desc").limit(3)
 
 		player_game_count = played_game_ratings.count
 
@@ -19,7 +19,20 @@ class Player < ApplicationRecord
 		end
 	end
 
-	def tenGameAverage
+	def twentyGameAverage
+		played_game_ratings = PlayerGameSubdatum.where(:player_id => id).includes(:game).order("games.game_date_time desc").limit(10)
 
+		player_game_count = played_game_ratings.count
+
+		playerStatsTotal = 0
+		played_game_ratings.each do |playerStats|
+			playerStatsTotal += playerStats.gameRating
+		end
+	
+		if (player_game_count == 0)
+			twentyGameAverage = 0
+		else
+			twentyGameAverage = playerStatsTotal / player_game_count
+		end
 	end
 end
