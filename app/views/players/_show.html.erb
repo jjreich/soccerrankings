@@ -22,14 +22,28 @@
 </p>
 
 <p>
-  <strong>Average 5 Game Rating:</strong>
-  <%= number_with_precision(@player.fiveGameAverage, :precision => 2) %>
-</p>
-
-<p>
   <strong>Average 20 Game Rating:</strong>
   <%= number_with_precision(@player.twentyGameAverage, :precision => 2) %>
+
+
+<% form_status = @player.fiveGameAverage - @player.twentyGameAverage %>
+
+<% if form_status < -3 %>
+  <%= image_tag("red_very_down.png", :alt => "very down") %>
+<% elsif form_status < -1 %>
+  <%= image_tag("red_medium_down.png", :alt => "down") %>
+<% elsif form_status < 0 %>
+  <%= image_tag("red_slightly_down.png", :alt => "slightly down") %>
+<% elsif form_status > 3 %>
+  <%= image_tag("green_very_up.png", :alt => "very up") %>
+<% elsif form_status > 1 %>
+  <%= image_tag("green_medium_up.png", :alt => "up") %>
+<% elsif form_status > 0 %>
+  <%= image_tag("green_slightly_up.png", :alt => "slightly up") %>
+<% end %>
+
 </p>
+
 
 <%= render 'show_player_ball_skills', :this_player_id => @player.id %>
 
