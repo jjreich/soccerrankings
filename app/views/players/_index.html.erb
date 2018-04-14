@@ -5,8 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>First Name</th>
-      <th>Last name</th> 
+      <th>Name</th>
       <th>Rating</th>          
       <th>Gender</th>
       <th>DOB</th>
@@ -15,10 +14,10 @@
   </thead>
 
   <tbody>
-    <% @players.each do |player| %>
+    <% orderedPlayers = @players.sorted_by_twentyGameAverage %>
+    <% orderedPlayers.each do |player| %>
       <tr>
-        <td><%= player.firstName %></td>
-        <td><%= player.lastName %></td>
+        <td><%= player.fullName %></td>
         <td><%= number_with_precision(player.twentyGameAverage, :precision => 2) %>
           <% form_status = player.fiveGameAverage - player.twentyGameAverage %>
 

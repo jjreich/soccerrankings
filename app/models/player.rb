@@ -2,6 +2,10 @@ class Player < ApplicationRecord
 	has_and_belongs_to_many :teams
 	has_many :player_game_subdata
 
+	def fullName
+		fullName = firstName + " " + lastName
+	end
+
 	def fiveGameAverage
 		played_game_ratings = PlayerGameSubdatum.where(:player_id => id).includes(:game).order("games.game_date_time desc").limit(3)
 
@@ -34,5 +38,9 @@ class Player < ApplicationRecord
 		else
 			twentyGameAverage = playerStatsTotal / player_game_count
 		end
+	end
+
+	def self.sorted_by_twentyGameAverage
+  		Player.all.sort_by(&:twentyGameAverage).reverse
 	end
 end
