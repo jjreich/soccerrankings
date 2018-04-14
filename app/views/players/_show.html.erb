@@ -92,14 +92,14 @@
               <%= @player.player_game_subdata.sum(:redCards) %>
             </td>
             <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:shots).to_f / @player.player_game_subdata.count), :precision => 2) %>
+              <%= number_with_precision((@player.player_game_subdata.sum(:shots).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
             <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:completedPasses).to_f / @player.player_game_subdata.sum(:attemptedPasses) * 100), :precision => 2)
+              <%= number_with_precision((@player.player_game_subdata.sum(:completedPasses).to_f / @player.player_game_subdata.sum(:attemptedPasses) * 100), :precision => 1)
                %>%
             </td>
             <td>
-              <%= @player.player_game_subdata.sum(:fiftyFiftiesWon) / @player.player_game_subdata.count %>
+              <%= number_with_precision((@player.player_game_subdata.sum(:fiftyFiftiesWon).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
             <td></td>
             <td>
@@ -137,28 +137,28 @@
               <%= @player.player_game_subdata.sum(:minutes) %>
             </td>          
             <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:tackles).to_f / @player.player_game_subdata.count), :precision => 2) %>
+              <%= number_with_precision((@player.player_game_subdata.sum(:tackles).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>          
             <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:interceptions).to_f / @player.player_game_subdata.count), :precision => 2) %>
+              <%= number_with_precision((@player.player_game_subdata.sum(:interceptions).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
             <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:recoveries).to_f / @player.player_game_subdata.count), :precision => 2) %>
+              <%= number_with_precision((@player.player_game_subdata.sum(:recoveries).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
             <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:fouls).to_f / @player.player_game_subdata.count), :precision => 2) %>
+              <%= number_with_precision((@player.player_game_subdata.sum(:fouls).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
             <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:clearings).to_f / @player.player_game_subdata.count), :precision => 2) %>
+              <%= number_with_precision((@player.player_game_subdata.sum(:clearings).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
             <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:dribblePast).to_f / @player.player_game_subdata.count), :precision => 2) %>
+              <%= number_with_precision((@player.player_game_subdata.sum(:dribblePast).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
             <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:blockedShots).to_f / @player.player_game_subdata.count), :precision => 2) %>
+              <%= number_with_precision((@player.player_game_subdata.sum(:blockedShots).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
             <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:ownGoals).to_f / @player.player_game_subdata.count), :precision => 2) %>
+              <%= number_with_precision((@player.player_game_subdata.sum(:ownGoals).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
             <td>
               <%= number_with_precision(@player.twentyGameAverage, :precision => 2) %>
@@ -201,25 +201,25 @@
               <%= @player.player_game_subdata.sum(:assists) %>
             </td>
             <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:shots).to_f / @player.player_game_subdata.count), :precision => 2) %>
+              <%= number_with_precision((@player.player_game_subdata.sum(:shots).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
             <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:shotsOnTarget).to_f / @player.player_game_subdata.sum(:shots) * 100), :precision => 2) %>%
+              <%= number_with_precision((@player.player_game_subdata.sum(:shotsOnTarget).to_f / @player.player_game_subdata.sum(:shots) * 100), :precision => 1) %>%
             </td>
             <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:keyPasses).to_f / @player.player_game_subdata.count), :precision => 2) %>
+              <%= number_with_precision((@player.player_game_subdata.sum(:keyPasses).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
             <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:dribbles).to_f / @player.player_game_subdata.count), :precision => 2) %>
+              <%= number_with_precision((@player.player_game_subdata.sum(:dribbles).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
             <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:fouled).to_f / @player.player_game_subdata.count), :precision => 2) %>
+              <%= number_with_precision((@player.player_game_subdata.sum(:fouled).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
             <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:dispossessed).to_f / @player.player_game_subdata.count), :precision => 2) %>
+              <%= number_with_precision((@player.player_game_subdata.sum(:dispossessed).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
             <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:turnovers).to_f / @player.player_game_subdata.count), :precision => 2) %>
+              <%= number_with_precision((@player.player_game_subdata.sum(:turnovers).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
             <td>
               <%= number_with_precision(@player.twentyGameAverage, :precision => 2) %>
@@ -234,14 +234,14 @@
         <tr>
           <th>Apps</th>
           <th>Min</th>
-          <th>Goals</th>
           <th>Assists</th>
-          <th>Yel</th>
-          <th>Red</th>
-          <th>SpG</th>
+          <th>Key Passes</th>
+          <th>Avg Passes</th>
           <th>PS%</th>
-          <th>Aerials Won</th>
-          <th>MotM</th>
+          <th>Crosses</th>
+          <th>Long Balls</th>
+          <th>Thru Balls</th>
+          <th>Corners</th>
           <th>Rating</th>    
         </tr>
       </thead>
@@ -255,28 +255,29 @@
               <%= @player.player_game_subdata.sum(:minutes) %>
             </td>          
             <td>
-              <%= @player.player_game_subdata.sum(:goals) %>
+              <%= @player.player_game_subdata.sum(:assists) %>
             </td>          
             <td>
-              <%= @player.player_game_subdata.sum(:assists) %>
+              <%= number_with_precision((@player.player_game_subdata.sum(:keyPasses).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
             <td>
-              <%= @player.player_game_subdata.sum(:yellowCards) %>
+              <%= number_with_precision((@player.player_game_subdata.sum(:completedPasses).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
             <td>
-              <%= @player.player_game_subdata.sum(:redCards) %>
+              <%= number_with_precision((@player.player_game_subdata.sum(:completedPasses).to_f / @player.player_game_subdata.sum(:attemptedPasses) * 100), :precision => 1) %>%
             </td>
             <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:shots).to_f / @player.player_game_subdata.count), :precision => 2) %>
+              <%= number_with_precision((@player.player_game_subdata.sum(:crosses).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
             <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:completedPasses).to_f / @player.player_game_subdata.sum(:attemptedPasses) * 100), :precision => 2)
-               %>%
+              <%= number_with_precision((@player.player_game_subdata.sum(:longBalls).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
             <td>
-              <%= @player.player_game_subdata.sum(:fiftyFiftiesWon) / @player.player_game_subdata.count %>
+              <%= number_with_precision((@player.player_game_subdata.sum(:thruBalls).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
-            <td></td>
+            <td>
+              <%= number_with_precision((@player.player_game_subdata.sum(:corners).to_f / @player.player_game_subdata.count), :precision => 1) %>
+            </td>
             <td>
               <%= number_with_precision(@player.twentyGameAverage, :precision => 2) %>
             </td>    
