@@ -17,7 +17,11 @@
     <% orderedPlayers = @players.sorted_by_twentyGameAverage %>
     <% orderedPlayers.each do |player| %>
       <tr>
-        <td><%= player.fullName %></td>
+        <td>
+            <%= link_to player, :class => "", remote: true do %>
+              <%= player.fullName %>
+            <% end %>
+        </td>
         <td><%= number_with_precision(player.twentyGameAverage, :precision => 2) %>
           <% form_status = player.fiveGameAverage - player.twentyGameAverage %>
 

@@ -7,7 +7,7 @@ class Player < ApplicationRecord
 	end
 
 	def fiveGameAverage
-		played_game_ratings = PlayerGameSubdatum.where(:player_id => id).includes(:game).order("games.game_date_time desc").limit(3)
+		played_game_ratings = PlayerGameSubdatum.where(:player_id => id).joins(:game).order("games.game_date_time desc").limit(3)
 
 		player_game_count = played_game_ratings.count
 
@@ -24,7 +24,7 @@ class Player < ApplicationRecord
 	end
 
 	def twentyGameAverage
-		played_game_ratings = PlayerGameSubdatum.where(:player_id => id).includes(:game).order("games.game_date_time desc").limit(10)
+		played_game_ratings = PlayerGameSubdatum.where(:player_id => id).joins(:game).order("games.game_date_time desc").limit(10)
 
 		player_game_count = played_game_ratings.count
 
