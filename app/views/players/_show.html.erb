@@ -10,19 +10,9 @@
   <% end %>
 <% end %>
 
-
+</br>
 <p>
-  <strong>Gender:</strong>
-  <%= @player.gender %>
-</p>
-
-<p>
-  <strong>DOB:</strong>
-  <%= @player.dob %>
-</p>
-
-<p>
-  <strong>Average Rating:</strong>
+  <strong>Rating:</strong>
   <%= number_with_precision(@player.twentyGameAverage, :precision => 2) %>
 
 

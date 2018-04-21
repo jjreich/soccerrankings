@@ -16,7 +16,7 @@
   <tbody>
     <% @teams.each do |team| %>
       <tr>
-        <td><%= team.name %></td>
+        <td><%= link_to team.name, team, :class => "", remote: true %></td>
         <% if team.club_type.present? %>
           <td><%= team.club_type.name %></td>
         <% else %>

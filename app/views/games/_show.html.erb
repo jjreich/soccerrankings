@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Datetime:</strong>
-  <%= @game.game_date_time %>
+  <strong>Date:</strong>
+  <%= @game.game_date_time.strftime("%d %b %Y") %>
 </p>
 
 <p>
@@ -11,12 +11,12 @@
 </p>
 
 <p>
-  <strong>Fieldtype:</strong>
+  <strong>Field Type:</strong>
   <%= @game.fieldType %>
 </p>
 
 <p>
-  <strong>Fieldconditions:</strong>
+  <strong>Field Conditions:</strong>
   <%= @game.fieldConditions %>
 </p>
 

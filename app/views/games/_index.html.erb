@@ -5,16 +5,12 @@
 <table>
   <thead>
     <tr>
-      <th>Datetime</th>
-      <th>Location</th>
-      <th>Fieldtype</th>
-      <th>Fieldconditions</th>
-      <th>Weather</th>
-      <th>Temperature</th>
+      <th>Date</th>
       <th>Home Team</th>
       <th>Away Team</th>
+      <th></th>
       <% if user_signed_in? %>
-        <th colspan="3"></th>
+        <th colspan="2"></th>
       <% end %>
     </tr>
   </thead>
@@ -22,16 +18,11 @@
   <tbody>
     <% @games.each do |game| %>
       <tr>
-        <td><%= game.game_date_time %></td>
-        <td><%= game.location %></td>
-        <td><%= game.fieldType %></td>
-        <td><%= game.fieldConditions %></td>
-        <td><%= game.weather %></td>
-        <td><%= game.temperature %></td>
-        <td><%= game.home_team.name %></td>
-        <td><%= game.away_team.name %></td>
-        <% if user_signed_in? %>
-          <td><%= link_to 'Show', game, :class => "", remote: true %></td>
+        <td><%= game.game_date_time.strftime("%d %b %Y") %></td>
+        <td><%= game.home_team.name %> - <%= game.home_team_score %></td>
+        <td><%= game.away_team.name %> - <%= game.away_team_score %></td>
+        <td><%= link_to 'Show', game, :class => "", remote: true %></td>
+        <% if user_signed_in? %>  
           <td><%= link_to 'Edit', edit_game_path(game) %></td>
           <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
@@ -42,4 +33,8 @@
 
 <br>
 
-<%= link_to 'New Game', new_game_path, :class => "", remote: true %>
+<% if user_signed_in? %>
+
+  <%= link_to 'New Game', new_game_path, :class => "", remote: true %>
+
+<% end %>
