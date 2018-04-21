@@ -49,7 +49,6 @@
   <li class="tabs-title"><a data-tabs-target="panel2" href="#panel2">Defensive</a></li>
   <li class="tabs-title"><a data-tabs-target="panel3" href="#panel3">Offensive</a></li>
   <li class="tabs-title"><a data-tabs-target="panel4" href="#panel4">Passing</a></li>
-  <li class="tabs-title"><a data-tabs-target="panel5" href="#panel5">Detailed</a></li>  
 </ul>
 
 <div class="tabs-content" data-tabs-content="ratings-tabs">
@@ -284,73 +283,19 @@
           </tr>
       </tbody>
     </table>  </div>
-  <div class="tabs-panel" id="panel5">
-    <table id="playerData" class="display" style="width:100%">
-      <thead>
-        <tr>
-          <th>Apps</th>
-          <th>Min</th>
-          <th>Goals</th>
-          <th>Assists</th>
-          <th>Yel</th>
-          <th>Red</th>
-          <th>SpG</th>
-          <th>PS%</th>
-          <th>Aerials Won</th>
-          <th>MotM</th>
-          <th>Rating</th>    
-        </tr>
-      </thead>
-
-      <tbody>
-          <tr>
-            <td>
-              <%= @player.player_game_subdata.count %> 
-            </td>
-            <td>
-              <%= @player.player_game_subdata.sum(:minutes) %>
-            </td>          
-            <td>
-              <%= @player.player_game_subdata.sum(:goals) %>
-            </td>          
-            <td>
-              <%= @player.player_game_subdata.sum(:assists) %>
-            </td>
-            <td>
-              <%= @player.player_game_subdata.sum(:yellowCards) %>
-            </td>
-            <td>
-              <%= @player.player_game_subdata.sum(:redCards) %>
-            </td>
-            <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:shots).to_f / @player.player_game_subdata.count), :precision => 2) %>
-            </td>
-            <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:completedPasses).to_f / @player.player_game_subdata.sum(:attemptedPasses) * 100), :precision => 2)
-               %>%
-            </td>
-            <td>
-              <%= @player.player_game_subdata.sum(:fiftyFiftiesWon) / @player.player_game_subdata.count %>
-            </td>
-            <td></td>
-            <td>
-              <%= number_with_precision(@player.twentyGameAverage, :precision => 2) %>
-            </td>    
-          </tr>
-      </tbody>
-    </table>
-  </div>
 </div>
 
+<% if user_signed_in? %>
+    <%= render 'show_player_ball_skills', :this_player_id => @player.id %>
 
-<%= render 'show_player_ball_skills', :this_player_id => @player.id %>
+  <br/>
 
-<br/>
+  <%= link_to 'New Player Ball Skill', new_player_ball_skill_path(:player_id => @player.id) %>
 
-<%= link_to 'New Player Ball Skill', new_player_ball_skill_path(:player_id => @player.id) %>
+  <%= link_to 'Edit', edit_player_path(@player) %> |
+  <%= link_to 'Back', players_path %>
 
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
+<% end %>
 
 <script>
   $(document).foundation();

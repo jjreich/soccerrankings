@@ -58,7 +58,10 @@
       <th>SOG</th>
       <th>Goals</th>
       <th>Assists</th>
-      <th></th>    </tr>
+      <% if user_signed_in? %>
+        <th></th>
+      <% end %>    
+    </tr>
   </thead>
 
   <tbody>
@@ -106,7 +109,9 @@
           <td><%= playerGameStats.shotsOnTarget %></td>
           <td><%= playerGameStats.goals %></td>
           <td><%= playerGameStats.assists %></td>
-          <td><%= link_to 'Edit Player Stats', edit_player_game_subdatum_path(playerGameStats.id), :class => "", remote: true %></td>
+          <% if user_signed_in? %>
+            <td><%= link_to 'Edit Player Stats', edit_player_game_subdatum_path(playerGameStats.id), :class => "", remote: true %></td>
+          <% end %>
         <% else %>
           <td></td> 
           <td></td>
@@ -117,7 +122,9 @@
           <td></td>
           <td></td>
           <td></td>
-          <td><%= link_to 'Add Player Stats', new_player_game_subdatum_path(:player_id => homePlayer.id, :team_id => @game.home_team.id, :game_id => @game.id), :class => "", remote: true %></td>
+          <% if user_signed_in? %>
+            <td><%= link_to 'Add Player Stats', new_player_game_subdatum_path(:player_id => homePlayer.id, :team_id => @game.home_team.id, :game_id => @game.id), :class => "", remote: true %></td>
+          <% end %>
         <% end %>
       </tr>
     <% end %>
@@ -141,7 +148,9 @@
       <th>SOG</th>
       <th>Goals</th>
       <th>Assists</th>
-      <th></th>
+      <% if user_signed_in? %>
+        <th></th>
+      <% end %>
     </tr>
   </thead>
 
@@ -164,7 +173,9 @@
           <td><%= playerGameStats.shotsOnTarget %></td>
           <td><%= playerGameStats.goals %></td>
           <td><%= playerGameStats.assists %></td>
-          <td><%= link_to 'Edit Player Stats', edit_player_game_subdatum_path(playerGameStats.id), :class => "", remote: true %></td>
+          <% if user_signed_in? %>
+            <td><%= link_to 'Edit Player Stats', edit_player_game_subdatum_path(playerGameStats.id), :class => "", remote: true %></td>
+          <% end %>
         <% else %> 
           <td></td> 
           <td></td>
@@ -175,16 +186,19 @@
           <td></td>
           <td></td>
           <td></td>
-          <td><%= link_to 'Add Player Stats', new_player_game_subdatum_path(:player_id => awayPlayer.id, :team_id => @game.away_team.id, :game_id => @game.id), :class => "", remote: true %><td/>
+          <% if user_signed_in? %>
+            <td><%= link_to 'Add Player Stats', new_player_game_subdatum_path(:player_id => awayPlayer.id, :team_id => @game.away_team.id, :game_id => @game.id), :class => "", remote: true %><td/>
+          <% end %>
         <% end %>
       </tr> 
     <% end %>
   </tbody>
 </table>
 
-
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+<% if user_signed_in? %>
+  <%= link_to 'Edit', edit_game_path(@game) %> |
+  <%= link_to 'Back', games_path %> 
+<% end %>
 
 <script>
   $(document).ready(function() {
