@@ -6,10 +6,10 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Rating</th> 
       <th>Starts</th>
       <th>Apps</th>
       <th>Min</th>
-      <th>Rating</th> 
       <% if user_signed_in? %>         
         <th colspan="3"></th>
       <% end %>
@@ -25,15 +25,6 @@
               <%= player.fullName %>
             <% end %>
         </td>
-        <td>
-          <%= player.player_game_subdata.where('started = ?', true).count %> 
-        </td>
-        <td>
-          <%= player.player_game_subdata.count %> 
-        </td>
-        <td>
-          <%= player.player_game_subdata.sum(:minutes) %>
-        </td>  
         <td><%= number_with_precision(player.twentyGameAverage, :precision => 2) %>
           <% form_status = player.fiveGameAverage - player.twentyGameAverage %>
 
@@ -61,6 +52,16 @@
             <%= image_tag(imageName, :size => "16x16", :alt => imageAlt) %>
           <% end %>
         </td>
+        <td>
+          <%= player.player_game_subdata.where('started = ?', true).count %> 
+        </td>
+        <td>
+          <%= player.player_game_subdata.count %> 
+        </td>
+        <td>
+          <%= player.player_game_subdata.sum(:minutes) %>
+        </td>  
+
         <% if user_signed_in? %>
           <td><%= link_to 'Show', player, :class => "", remote: true %></td>
           <td><%= link_to 'Edit', edit_player_path(player) %></td>
