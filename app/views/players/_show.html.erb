@@ -275,6 +275,13 @@
     </table>  </div>
 </div>
 
+<% @player.player_game_subdata.each do |game_data| %>
+  
+  <p>
+    <%= game_data.game.game_date_time %> - <%= game_data.gameRating %>
+  </p>
+
+<% end %>
 <% if user_signed_in? %>
     <%= render 'show_player_ball_skills', :this_player_id => @player.id %>
 

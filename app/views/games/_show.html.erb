@@ -65,42 +65,25 @@
   </thead>
 
   <tbody>
-    <% @game.home_team.players.each do |homePlayer| %>
+    <% homePlayers = @game.home_team.players %>
+    <% homePlayers.each do |homePlayer| %>
       <tr>
-        <td>
-          <%= link_to homePlayer do %>
-            <%= homePlayer.firstName %> <%= homePlayer.lastName %>
-          <% end %>
-        </td>
-          <% playerGameStats = PlayerGameSubdatum.where(:player_id => homePlayer.id, :team_id => @game.home_team.id, :game_id => @game.id).first %>
+        <% playerGameStats = PlayerGameSubdatum.where(:player_id => homePlayer.id, :team_id => @game.home_team.id, :game_id => @game.id).first %>
         <% if playerGameStats.present? %>
+          <td>
+            <% if playerGameStats.started == true %>
+              <%= link_to homePlayer do %>
+                <b><%= homePlayer.firstName %> <%= homePlayer.lastName %></b>
+              <% end %>
+            <% else %>
+              <%= link_to homePlayer do %>
+                <%= homePlayer.firstName %> <%= homePlayer.lastName %>
+              <% end %>
+            <% end %>
+          </td>
           <td><%= playerGameStats.minutes %></td>          
-          <td><%= number_with_precision(playerGameStats.gameRating, :precision => 2) %>
-            <% form_status = homePlayer.fiveGameAverage - homePlayer.twentyGameAverage %>
-
-            <% if form_status < -3 %>
-              <% imageName = "red_very_down.png" %>
-              <% imageAlt = "very down" %>
-            <% elsif form_status < -1 %>
-              <% imageName = "red_medium_down.png" %>
-              <% imageAlt = "medium down" %>            
-            <% elsif form_status < 0 %>
-              <% imageName = "red_slightly_down.png" %>
-              <% imageAlt = "very down" %>
-            <% elsif form_status > 3 %>
-              <% imageName = "green_very_up.png" %>
-              <% imageAlt = "very up" %>
-            <% elsif form_status > 1 %>
-              <% imageName = "green_medium_up.png" %>
-              <% imageAlt = "up" %>
-            <% elsif form_status > 0 %>
-              <% imageName = "green_slightly_up.png" %>
-              <% imageAlt = "slightly up" %>
-            <% end %>
-
-            <% if imageName.present? %>
-              <%= image_tag(imageName, :size => "16x16", :alt => imageAlt) %>
-            <% end %>
+          <td>
+            <%= number_with_precision(playerGameStats.gameRating, :precision => 2) %>
           </td>          
           <td><%= playerGameStats.attemptedPasses %></td>
           <td><%= playerGameStats.completedPasses %></td>
@@ -113,6 +96,11 @@
             <td><%= link_to 'Edit Player Stats', edit_player_game_subdatum_path(playerGameStats.id), :class => "", remote: true %></td>
           <% end %>
         <% else %>
+          <td>
+            <%= link_to homePlayer do %>
+              <%= homePlayer.firstName %> <%= homePlayer.lastName %>
+            <% end %>
+          </td>
           <td></td> 
           <td></td>
           <td></td>
