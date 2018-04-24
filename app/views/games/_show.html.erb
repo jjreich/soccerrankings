@@ -65,7 +65,7 @@
   </thead>
 
   <tbody>
-    <% homePlayers = @game.home_team.players %>
+    <% homePlayers = @game.home_team.players.order(firstName: :asc) %>
     <% homePlayers.each do |homePlayer| %>
       <tr>
         <% playerGameStats = PlayerGameSubdatum.where(:player_id => homePlayer.id, :team_id => @game.home_team.id, :game_id => @game.id).first %>

@@ -275,10 +275,12 @@
     </table>  </div>
 </div>
 
-<% @player.player_game_subdata.each do |game_data| %>
+<% player_subdata = @player.player_game_subdata.joins(:game).order("games.game_date_time desc") %>
+
+<% player_subdata.each do |game_data| %>
   
   <p>
-    <%= game_data.game.game_date_time %> - <%= game_data.gameRating %>
+    <%= game_data.game.game_date_time.strftime("%d %b %Y") %> - <%= number_with_precision(game_data.gameRating, :precision => 2) %> 
   </p>
 
 <% end %>
