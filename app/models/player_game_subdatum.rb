@@ -71,6 +71,12 @@ class PlayerGameSubdatum < ApplicationRecord
             startedBonus = 0
         end 
 
+        if (motm == true)
+            motmBonus = 2
+        else
+            motmBonus = 0
+        end 
+
     	passingRating = passingPercentage * completedPasses * 0.002
     	significantPassingRating = (corners + crosses + (clearings * 0.5) + (longBalls * 0.5) + thruBalls) * 0.5
     	keyPassRating = keyPasses * 1
@@ -116,6 +122,6 @@ class PlayerGameSubdatum < ApplicationRecord
 
    		offensiveRating = passingRating + significantPassingRating + keyPassRating + turnoverRating + dribbleRating + dispossessedRating + fouledRating + shotsRating + shotsOnTargetRating + goalRating + assistRating + offsideRating
     	defensiveRating = fiftyFiftyRating + tackleRating + dribblePastRating + interceptionRating + recoveriesRating + blockedShotRating + ownGoalRating + foulsRating + savesRating + goalsAgainstRating + highCatchesRating
-    	gameRating = opponentRating + offensiveRating + defensiveRating + gameScoreBonus + startedBonus
+    	gameRating = opponentRating + offensiveRating + defensiveRating + gameScoreBonus + startedBonus + motmBonus
     end
 end

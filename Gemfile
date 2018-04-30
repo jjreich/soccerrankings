@@ -36,6 +36,11 @@ gem 'devise'
 gem 'rolify'
 gem 'cancancan', '~> 2.0'
 
+gem 'highcharts-rails'
+gem "chartkick"
+gem 'groupdate'
+gem 'active_median'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'jquery-rails'

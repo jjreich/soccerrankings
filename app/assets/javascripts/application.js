@@ -14,6 +14,8 @@
 //= require jquery
 //= require foundation
 //= require turbolinks
+//= require highcharts
+//= require chartkick
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

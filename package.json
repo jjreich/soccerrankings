@@ -1,5 +1,7 @@
 {
   "name": "soccerrankings",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "highcharts": "^6.1.0"
+  }
 }

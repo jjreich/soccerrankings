@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180415232518) do
+ActiveRecord::Schema.define(version: 20180430022430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20180415232518) do
     t.integer "goalsAgainst", default: 0
     t.boolean "started", default: false
     t.boolean "available", default: false
+    t.boolean "motm", default: false
     t.index ["game_id"], name: "index_player_game_subdata_on_game_id"
     t.index ["player_id"], name: "index_player_game_subdata_on_player_id"
     t.index ["team_id"], name: "index_player_game_subdata_on_team_id"
