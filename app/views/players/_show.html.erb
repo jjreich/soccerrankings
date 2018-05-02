@@ -90,7 +90,9 @@
             <td>
               <%= number_with_precision((@player.player_game_subdata.sum(:fiftyFiftiesWon).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
-            <td></td>
+            <td>
+              <%= @player.player_game_subdata.where('motm = ?', true).count %>
+            </td>
             <td>
               <%= number_with_precision(@player.twentyGameAverage, :precision => 2) %>
             </td>    
