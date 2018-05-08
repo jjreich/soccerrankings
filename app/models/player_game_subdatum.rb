@@ -90,21 +90,21 @@ class PlayerGameSubdatum < ApplicationRecord
     	if assists==0
     		assistRating=0
     	elsif assists==1
-    		assistRating = 2
+    		assistRating = 3
     	elsif assists==2
-    		assistRating = 5
+    		assistRating = 7
     	elsif assists>2
-    		assistRating = 5 + (assists-2)*4
+    		assistRating = 7 + (assists-2)*5
     	end	
 
     	if goals==0
     		goalRating=0
     	elsif goals==1
-    		goalRating = 3
+    		goalRating = 5
     	elsif goals==2
-    		goalRating = 7
+    		goalRating = 11
     	elsif goals>2
-    		goalRating = 7 + (goals-2)*5
+    		goalRating = 11 + (goals-2)*7
     	end
     		
     	fiftyFiftyRating = fiftyFiftiesWon * 0.3
