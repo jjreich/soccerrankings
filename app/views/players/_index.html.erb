@@ -10,6 +10,7 @@
       <th>Starts</th>
       <th>Apps</th>
       <th>Min</th>
+      <th>Passing %</th>
       <% if user_signed_in? %>         
         <th colspan="3"></th>
       <% end %>
@@ -60,7 +61,10 @@
         </td>
         <td>
           <%= player.player_game_subdata.sum(:minutes) %>
-        </td>  
+        </td> 
+        <td>
+          <%= number_with_precision((player.player_game_subdata.sum(:completedPasses).to_f / player.player_game_subdata.sum(:attemptedPasses) * 100), :precision => 1) %>%
+        </td> 
 
         <% if user_signed_in? %>
           <td><%= link_to 'Show', player, :class => "", remote: true %></td>
