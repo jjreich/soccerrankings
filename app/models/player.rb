@@ -6,6 +6,19 @@ class Player < ApplicationRecord
 		fullName = firstName + " " + lastName
 	end
 
+	def days_since_last_game
+		played_game_ratings = PlayerGameSubdatum.where(:player_id => id).joins(:game).order("games.game_date_time desc")
+		player_game_count = played_game_ratings.count
+		if player_game_count == 0
+			days_since_last_game = "unknown"
+		else
+			last_game_rating = played_game_ratings.first
+			last_game = Game.find(last_game_rating.game_id)
+			last_game_date = last_game.game_date_time
+			days_since_last_game = ((Time.now-last_game_date)/1.day).floor	
+		end
+	end 
+
 	def fiveGameAverage
 		if PlayerGameSubdatum.where(:player_id => id).count<8
 			averageValue = 3
@@ -50,10 +63,6 @@ class Player < ApplicationRecord
 		if (player_game_count == 0)
 			twentyGameAverage = 0
 		else
-			last_game_rating = played_game_ratings.first
-			last_game = Game.find(last_game_rating.game_id)
-			last_game_date = last_game.game_date_time
-			days_since_last_game = ((Time.now-last_game_date)/1.day).floor
 			if (days_since_last_game >14)
 				last_game_adjustment = (days_since_last_game-14)/7
 			else
@@ -73,10 +82,7 @@ class Player < ApplicationRecord
 		if (player_game_count == 0)
 			form_status = 0
 		else
-			last_game_rating = played_game_ratings.first
-			last_game = Game.find(last_game_rating.game_id)
-			last_game_date = last_game.game_date_time
-			days_since_last_game = ((Time.now-last_game_date)/1.day).floor
+
 			if (days_since_last_game >14)
 					last_game_adjustment = (days_since_last_game-14)/7
 			else
