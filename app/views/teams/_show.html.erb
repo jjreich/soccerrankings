@@ -17,8 +17,10 @@
 	<% if home_game.home_team_score > home_game.away_team_score %>
 		Win <%= home_game.home_team_score %>-<%= home_game.away_team_score %>
 	<% else %>
-
+		Win <%= home_game.home_team_score %>-<%= home_game.away_team_score %>
 	<% end %> 
+
+	</br>
 <% end %>
 
 <% away_games = Game.where(:away_team_id => @team.id) %>
@@ -31,6 +33,8 @@
 	<% else %>
 		Loss <%= away_game.away_team_score %>-<%= away_game.home_team_score %>
 	<% end %> 
+
+	</br>
 <% end %>
 
 <H4>Players</H4>
