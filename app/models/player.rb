@@ -50,11 +50,39 @@ class Player < ApplicationRecord
 		if (player_game_count == 0)
 			twentyGameAverage = 0
 		else
-			twentyGameAverage = playerStatsTotal / player_game_count
+			last_game_rating = played_game_ratings.first
+			last_game = Game.find(last_game_rating.game_id)
+			last_game_date = last_game.game_date_time
+			days_since_last_game = ((Time.now-last_game_date)/1.day).floor
+			if (days_since_last_game >14)
+				last_game_adjustment = (days_since_last_game-14)/7
+			else
+				last_game_adjustment = 0
+			end
+			twentyGameAverage = playerStatsTotal / player_game_count - last_game_adjustment
 		end
 	end
 
 	def self.sorted_by_twentyGameAverage
   		Player.all.sort_by(&:twentyGameAverage).reverse
+	end
+
+	def form_status
+		played_game_ratings = PlayerGameSubdatum.where(:player_id => id).joins(:game).order("games.game_date_time desc")
+		player_game_count = played_game_ratings.count
+		if (player_game_count == 0)
+			form_status = 0
+		else
+			last_game_rating = played_game_ratings.first
+			last_game = Game.find(last_game_rating.game_id)
+			last_game_date = last_game.game_date_time
+			days_since_last_game = ((Time.now-last_game_date)/1.day).floor
+			if (days_since_last_game >14)
+					last_game_adjustment = (days_since_last_game-14)/7
+			else
+				last_game_adjustment = 0
+			end
+			form_status = fiveGameAverage - twentyGameAverage - (2 * last_game_adjustment)
+		end
 	end
 end

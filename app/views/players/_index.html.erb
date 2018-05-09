@@ -27,7 +27,7 @@
             <% end %>
         </td>
         <td><%= number_with_precision(player.twentyGameAverage, :precision => 2) %>
-          <% form_status = player.fiveGameAverage - player.twentyGameAverage %>
+          <% form_status = player.form_status %>
 
           <% if form_status < -3 %>
             <% imageName = "red_very_down.png" %>

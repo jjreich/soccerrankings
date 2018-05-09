@@ -16,7 +16,7 @@
   <%= number_with_precision(@player.twentyGameAverage, :precision => 2) %>
 
 
-<% form_status = @player.fiveGameAverage - @player.twentyGameAverage %>
+<% form_status = @player.form_status %>
 
 <% if form_status < -3 %>
   <%= image_tag("red_very_down.png", :size => "20x20", :alt => "very down") %>
@@ -84,8 +84,7 @@
               <%= number_with_precision((@player.player_game_subdata.sum(:shots).to_f / @player.player_game_subdata.count), :precision => 1) %>
             </td>
             <td>
-              <%= number_with_precision((@player.player_game_subdata.sum(:completedPasses).to_f / @player.player_game_subdata.sum(:attemptedPasses) * 100), :precision => 1)
-               %>%
+              <%= number_with_precision((@player.player_game_subdata.sum(:completedPasses).to_f / @player.player_game_subdata.sum(:attemptedPasses) * 100), :precision => 1) %>%
             </td>
             <td>
               <%= number_with_precision((@player.player_game_subdata.sum(:fiftyFiftiesWon).to_f / @player.player_game_subdata.count), :precision => 1) %>
