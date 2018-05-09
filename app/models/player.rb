@@ -32,7 +32,7 @@ class Player < ApplicationRecord
 	end
 
 	def twentyGameAverage
-		if PlayerGameSubdatum.count<25
+		if PlayerGameSubdatum.where(:player_id => id).count<25
 			averageValue = PlayerGameSubdatum.where(:player_id => id).count
 			else
 			averageValue = 25
