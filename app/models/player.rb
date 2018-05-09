@@ -7,9 +7,9 @@ class Player < ApplicationRecord
 	end
 
 	def fiveGameAverage
-		if PlayerGameSubdatum.count<8
+		if PlayerGameSubdatum.where(:player_id => id).count<8
 			averageValue = 3
-		elsif PlayerGameSubdatum.count<11
+		elsif PlayerGameSubdatum.where(:player_id => id).count<11
 			averageValue = 4
 		else
 			averageValue = 5
@@ -33,7 +33,7 @@ class Player < ApplicationRecord
 
 	def twentyGameAverage
 		if PlayerGameSubdatum.count<25
-			averageValue = PlayerGameSubdatum.count
+			averageValue = PlayerGameSubdatum.where(:player_id => id).count
 			else
 			averageValue = 25
 		end
