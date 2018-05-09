@@ -7,6 +7,32 @@
 
 </br>
 
+<h4>Games</h4>
+
+<% home_games = Game.where(:home_team_id => @team.id) %>
+
+<% home_games.each do |home_game| %>
+	Home - <%= home_game.game_date_time %> - <%= home_game.away_team.name %>
+
+	<% if home_game.home_team_score > home_game.away_team_score %>
+		Win <%= home_game.home_team_score %>-<%= home_game.away_team_score %>
+	<% else %>
+
+	<% end %> 
+<% end %>
+
+<% away_games = Game.where(:away_team_id => @team.id) %>
+
+<% away_games.each do |away_game| %>
+	Away - <%= away_game.game_date_time %> - <%= away_game.home_team.name %>
+
+	<% if away_game.away_team_score > away_game.home_team_score %>
+		Win <%= away_game.away_team_score %>-<%= away_game.home_team_score %>
+	<% else %>
+		Loss <%= away_game.away_team_score %>-<%= away_game.home_team_score %>
+	<% end %> 
+<% end %>
+
 <H4>Players</H4>
 
 <% @team.players.each do |player| %>
