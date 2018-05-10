@@ -3,6 +3,11 @@
 
 <H2><%= @player.firstName %> <%= @player.lastName %></H2>
 
+<h4>Positions</h4>
+<% @player.positions.each do |position| %>
+  <%= position.name %></br>
+<% end %>
+
 <h4>Teams</h4>
 <% @player.teams.each do |team| %>
   <%= link_to team do %>

@@ -16,11 +16,14 @@ class PlayersController < ApplicationController
   def new
     @player = Player.new
     @teams = Team.all 
+    @positions = Position.all
   end
 
   # GET /players/1/edit
   def edit
     @teams = Team.all 
+    @positions = Position.all
+
   end
 
   # POST /players

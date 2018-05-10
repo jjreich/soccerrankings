@@ -36,6 +36,11 @@
   <div class="field">
     <%= collection_check_boxes(:player, :team_ids, @teams, :id, :name) %>
   </div>
+
+
+  <div class="field">
+    <%= collection_check_boxes(:player, :position_ids, @positions, :id, :name) %>
+  </div>
   
   <div class="actions">
     <%= form.submit %>
