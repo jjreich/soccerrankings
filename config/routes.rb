@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :positions
   devise_for :users
   resources :games
   resources :player_game_subdata
