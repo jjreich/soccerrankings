@@ -16,6 +16,8 @@
 //= require turbolinks
 //= require highcharts
 //= require chartkick
+//= require nprogress
+//= require nprogress-turbolinks
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
