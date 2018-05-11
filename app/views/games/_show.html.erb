@@ -72,7 +72,7 @@
         <% if playerGameStats.present? %>
           <td>
             <% if playerGameStats.started == true %>
-              <%= link_to homePlayer do %>
+              <%= link_to homePlayer, :class => "", remote: true do %>
                 <b><%= homePlayer.firstName %> <%= homePlayer.lastName %></b>
               <% end %>
             <% else %>
@@ -146,7 +146,7 @@
     <% @game.away_team.players.each do |awayPlayer| %>
       <tr>
         <td>
-          <%= link_to awayPlayer do %>
+          <%= link_to awayPlayer, :class => "", remote: true do %>
             <%= awayPlayer.firstName %> <%= awayPlayer.lastName %>
           <% end %>
         </td>
