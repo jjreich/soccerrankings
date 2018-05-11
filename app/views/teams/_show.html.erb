@@ -13,7 +13,7 @@
     <div class="cell small-4">  	
   	    <H4>Players</H4>
   		<div class="grid-x grid-margin-x">
-			<% @team.players.each do |player| %>
+			<% @team.players.order(jersey_number: :asc).each do |player| %>
 
 			  <div class="cell small-1 text-right">
 			  	<%= player.jersey_number %>
