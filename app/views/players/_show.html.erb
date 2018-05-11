@@ -3,17 +3,35 @@
 
 <H2><%= @player.firstName %> <%= @player.lastName %></H2>
 
-<h4>Positions</h4>
-<% @player.positions.each do |position| %>
-  <%= position.name %></br>
-<% end %>
+<div class="grid-container">
+  <div class="grid-x grid-margin-x">
+    <div class="cell small-4">
+      <b>Positions: </b>
+      <% counter = 0 %>
+      <% comma_space = ", " %>
+      <% position_list = "" %>
+      <% position_count = @player.positions.count %>
+      <% @player.positions.each do |position| %>
+        <% position_list += position.name %>
+        <% counter += 1 %>
+        <% if counter < position_count %>
+          <% position_list += comma_space %>
+        <% end %>
+      <% end %>
+      <%= position_list %></br>
+      <b>Teams</b>
+      <% @player.teams.each do |team| %>
+        <%= link_to team do %>
+          <%= team.name %></br>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="cell small-4">
 
-<h4>Teams</h4>
-<% @player.teams.each do |team| %>
-  <%= link_to team do %>
-  	<%= team.name %></br>
-  <% end %>
-<% end %>
+    </div>
+    <div class="cell small-4">cell</div>
+  </div>
+</div>
 
 </br>
 <p>
