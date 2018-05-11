@@ -7,52 +7,71 @@
 
 </br>
 
-<h4>Games</h4>
+<div class="grid-container">
+  <div class="grid-x grid-margin-x">
 
-<% home_games = Game.where(:home_team_id => @team.id) %>
+    <div class="cell small-6">  	
+  	    <H4>Players</H4>
+  		<div class="grid-x grid-margin-x">
+			<% @team.players.each do |player| %>
 
-<% home_games.each do |home_game| %>
+			  <div class="cell small-1 text-right">
+			  	<%= player.jersey_number %>
+			  </div>
+		      
+		      <div class="cell small-11">
+				<%= link_to player do %>
+				  <%= player.firstName %> <%= player.lastName %>
+				<% end %>
+		      </div>
+			<% end %>
+		</div>
+	</div>
 
-	<%= link_to home_game, :class => "", remote: true do %>
-		Home - <%= home_game.game_date_time.strftime("%d %b %Y") %> - <%= home_game.away_team.name %>
+    <div class="cell small-12 medium-6">
 
-		<% if home_game.home_team_score > home_game.away_team_score %>
-			<b style="color:green;">Win <%= home_game.home_team_score %>-<%= home_game.away_team_score %></b>
-		<% else %>
-			<b style="color:red;">Loss <%= home_game.home_team_score %>-<%= home_game.away_team_score %></b>
-		<% end %> 
-	<% end %>
+		<h4>Games</h4>
 
-	</br>
-<% end %>
+		<% home_games = Game.where(:home_team_id => @team.id) %>
 
-<% away_games = Game.where(:away_team_id => @team.id) %>
+		<% home_games.each do |home_game| %>
 
-<% away_games.each do |away_game| %>
+			<%= link_to home_game, :class => "", remote: true do %>
+				Home - <%= home_game.game_date_time.strftime("%d %b %Y") %> - <%= home_game.away_team.name %>
 
-	<%= link_to away_game, :class => "", remote: true do %>
-		Away - <%= away_game.game_date_time.strftime("%d %b %Y") %> - <%= away_game.home_team.name %>
+				<% if home_game.home_team_score > home_game.away_team_score %>
+					<b style="color:green;">Win <%= home_game.home_team_score %>-<%= home_game.away_team_score %></b>
+				<% else %>
+					<b style="color:red;">Loss <%= home_game.home_team_score %>-<%= home_game.away_team_score %></b>
+				<% end %> 
+			<% end %>
 
-		<% if away_game.away_team_score > away_game.home_team_score %>
-			<b style="color:green;">Win <%= away_game.away_team_score %>-<%= away_game.home_team_score %></b>
-		<% else %>
-			<b style="color:red;">Loss <%= away_game.away_team_score %>-<%= away_game.home_team_score %></b>
-		<% end %> 
-	<% end %>
+			</br>
+		<% end %>
 
-	</br>
-<% end %>
+		<% away_games = Game.where(:away_team_id => @team.id) %>
 
-<H4>Players</H4>
+		<% away_games.each do |away_game| %>
 
-<% @team.players.each do |player| %>
-  <%= link_to player do %>
-  	<p><%= player.firstName %> <%= player.lastName %></p>
-  <% end %>
-<% end %>
+			<%= link_to away_game, :class => "", remote: true do %>
+				Away - <%= away_game.game_date_time.strftime("%d %b %Y") %> - <%= away_game.home_team.name %>
+
+				<% if away_game.away_team_score > away_game.home_team_score %>
+					<b style="color:green;">Win <%= away_game.away_team_score %>-<%= away_game.home_team_score %></b>
+				<% else %>
+					<b style="color:red;">Loss <%= away_game.away_team_score %>-<%= away_game.home_team_score %></b>
+				<% end %> 
+			<% end %>
+
+			</br>
+		<% end %>
+
+    </div>
+  </div>
+</div>
 
 
-</br>
+
 
 <% if user_signed_in? %>
 
