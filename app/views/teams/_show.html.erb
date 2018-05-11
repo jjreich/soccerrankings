@@ -20,7 +20,7 @@
 			  </div>
 		      
 		      <div class="cell small-11">
-				<%= link_to player do %>
+				<%= link_to player, :class => "", remote: true do %>
 				  <%= player.firstName %> <%= player.lastName %>
 				<% end %>
 		      </div>
