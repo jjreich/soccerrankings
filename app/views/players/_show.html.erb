@@ -6,6 +6,22 @@
 <div class="grid-container">
   <div class="grid-x grid-margin-x">
     <div class="cell small-12 medium-6">
+
+      <% if @player.teams.count>1 %>
+        <b>Current Teams: </b>
+      <% else %>
+        <b>Current Team: </b>
+      <% end %>
+      <% @player.teams.each do |team| %>
+        <%= link_to team do %>
+          <%= team.name %></br>
+        <% end %>
+      <% end %>
+
+      <b>Jersey Number: </b>
+      <%= @player.jersey_number %>
+    </br>
+
       <b>Positions: </b>
       <% counter = 0 %>
       <% comma_space = ", " %>
@@ -19,16 +35,8 @@
         <% end %>
       <% end %>
       <%= position_list %></br>
-      <% if @player.teams.count>1 %>
-        <b>Current Teams: </b>
-      <% else %>
-        <b>Current Team: </b>
-      <% end %>
-      <% @player.teams.each do |team| %>
-        <%= link_to team do %>
-          <%= team.name %></br>
-        <% end %>
-      <% end %>
+
+
     </div>
     <div class="cell small-12 medium-6">
 

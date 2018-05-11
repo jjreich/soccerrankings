@@ -27,6 +27,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :jersey_number %>
+    <%= form.text_field :jersey_number, id: :jersey_number %>
+  </div>
+
+  <div class="field">
     <%= form.label :dob %>
     <%= form.date_select :dob, id: :player_dob, as: :date, start_year: Date.today.year - 50,
                               end_year: Date.today.year - 5,
