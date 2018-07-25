@@ -5,11 +5,13 @@ class PlayersController < ApplicationController
   # GET /players.json
   def index
     @players = Player.all
+  # @players = User.players
   end
 
   # GET /players/1
   # GET /players/1.json
   def show
+  # @player = User.find(params[:id])
   end
 
   # GET /players/new
@@ -21,9 +23,9 @@ class PlayersController < ApplicationController
 
   # GET /players/1/edit
   def edit
+  # @player = User.find(params[:id])  
     @teams = Team.all 
     @positions = Position.all
-
   end
 
   # POST /players

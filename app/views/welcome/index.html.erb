@@ -1,17 +1,15 @@
-<div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
-  <button class="menu-icon" type="button" data-toggle="example-menu"></button>
-</div>
-
-<div class="top-bar" id="example-menu">
+<div class="top-bar">
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text">Soccer Statistics</li>
+      <li class="menu-text"><%= link_to "Soccer Statistics", root_path %></li>
       <li><%= link_to "Games", games_path, :class => "", remote: true %></li>
       <li><%= link_to "Teams", teams_path, :class => "", remote: true %></li>
       <li><%= link_to "Players", players_path, :class => "", remote: true %></li>
       <% if user_signed_in? %>
         <li><%= current_user.email %></li>
-        <li><%= link_to "Log out", destroy_user_session_path %></li>
+        <li><%= link_to "Log out", logout_path %></li>
+      <% else %>
+        <li><%= link_to "Login", login_path %></li>
       <% end %>
     </ul>
   </div>
@@ -27,5 +25,14 @@
 
 <div id="applicationContent">
 
+<% if user_signed_in? %>
+
+  <% if current_user.has_role? :player %>
+
+    <%= render "players/show_player", player: current_user.players.first %>
+
+  <% end %>
+
+<% end %>
 
 </div>

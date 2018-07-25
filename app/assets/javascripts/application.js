@@ -12,6 +12,7 @@
 //
 //= require rails-ujs
 //= require jquery
+//= require jquery_ujs
 //= require foundation
 //= require turbolinks
 //= require highcharts
@@ -20,4 +21,4 @@
 //= require nprogress-turbolinks
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(document).on("page:load", function() { $(document).foundation(); });
