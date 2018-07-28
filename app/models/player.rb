@@ -72,7 +72,8 @@ class Player < ApplicationRecord
 			else
 				last_game_adjustment = 0
 			end
-			twentyGameAverage = playerStatsTotal / player_game_count - last_game_adjustment
+			# twentyGameAverage = playerStatsTotal / player_game_count - last_game_adjustment
+			twentyGameAverage = playerStatsTotal / player_game_count
 		end
 	end
 
@@ -92,7 +93,8 @@ class Player < ApplicationRecord
 			else
 				last_game_adjustment = 0
 			end
-			form_status = fiveGameAverage - twentyGameAverage - (2 * last_game_adjustment)
+			# form_status = fiveGameAverage - twentyGameAverage - (2 * last_game_adjustment)
+			form_status = fiveGameAverage - twentyGameAverage
 		end
 	end
 end
