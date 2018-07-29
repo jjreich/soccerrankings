@@ -345,14 +345,12 @@
 <% data_array = [] %>
 
 <% player_subdata.each do |game_data| %>
-  
-  <p>
-    <%= game_data.game.game_date_time.strftime("%d %b %Y") %> - <%= number_with_precision(game_data.gameRating, :precision => 2) %> 
-  </p>
 
   <% data_array << {:gamedate => game_data.game.game_date_time.strftime("%d %b %Y"), :rating => number_with_precision(game_data.gameRating, :precision => 2)} %>
 
 <% end %>
+
+<br />
 
 <%= line_chart data_array.pluck(:gamedate, :rating), xtitle: "Date", ytitle: "Rating", min: 20, max: 60, discrete: true, label: "Rating" %>
 
