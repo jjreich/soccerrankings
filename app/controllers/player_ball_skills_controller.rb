@@ -69,6 +69,6 @@ class PlayerBallSkillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_ball_skill_params
-      params.require(:player_ball_skill).permit(:juggling, :dribbling, :receiving, :heading, :shooting, :longBalls, :skillsTestDate, :player_id)
+      params.require(:player_ball_skill).permit(:juggling, :dribbling, :receiving, :heading, :shooting, :longBalls, :skillsTestDate, :twentyYardShuttle, :thirtyYardSprint, :verticalLeap, :player_id)
     end
 end
