@@ -342,25 +342,27 @@
 
 <% player_subdata = @player.player_game_subdata.joins(:game).order("games.game_date_time asc") %>
 
-<% data_array = [] %>
+<% if player_subdata.present? %>
 
-<% player_subdata.each do |game_data| %>
+  <% data_array = [] %>
 
-  <% data_array << {:gamedate => game_data.game.game_date_time.strftime("%d %b %Y"), :rating => number_with_precision(game_data.gameRating, :precision => 2)} %>
+  <% player_subdata.each do |game_data| %>
 
-<% end %>
+    <% data_array << {:gamedate => game_data.game.game_date_time.strftime("%d %b %Y"), :rating => number_with_precision(game_data.gameRating, :precision => 2)} %>
 
-<br />
+  <% end %>
 
-<% max_rating = data_array.max_by { |h| h[:rating] }[:rating] %>
-<% min_rating = data_array.min_by { |h| h[:rating] }[:rating] %>
+  <br />
 
-<% top_limit = max_rating.to_f + 5.0 %>
-<% bottom_limit = min_rating.to_f - 5.0 %>
+  <% max_rating = data_array.max_by { |h| h[:rating] }[:rating] %>
+  <% min_rating = data_array.min_by { |h| h[:rating] }[:rating] %>
 
-<%= line_chart data_array.pluck(:gamedate, :rating), xtitle: "Date", ytitle: "Rating", min: top_limit, max: bottom_limit, discrete: true, label: "Rating" %>
+  <% top_limit = max_rating.to_f + 5.0 %>
+  <% bottom_limit = min_rating.to_f - 5.0 %>
 
-    
+  <%= line_chart data_array.pluck(:gamedate, :rating), xtitle: "Date", ytitle: "Rating", min: top_limit, max: bottom_limit, discrete: true, label: "Rating" %>
+
+<% end %>  
 
 <script>
   $(document).foundation();
