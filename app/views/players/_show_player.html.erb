@@ -352,7 +352,13 @@
 
 <br />
 
-<%= line_chart data_array.pluck(:gamedate, :rating), xtitle: "Date", ytitle: "Rating", min: 20, max: 60, discrete: true, label: "Rating" %>
+<% max_rating = data_array.max_by { |h| h[:rating] }[:rating] %>
+<% min_rating = data_array.min_by { |h| h[:rating] }[:rating] %>
+
+<% top_limit = max_rating.to_f + 5.0 %>
+<% bottom_limit = min_rating.to_f - 5.0 %>
+
+<%= line_chart data_array.pluck(:gamedate, :rating), xtitle: "Date", ytitle: "Rating", min: top_limit, max: bottom_limit, discrete: true, label: "Rating" %>
 
     
 
