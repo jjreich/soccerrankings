@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180729012900) do
+ActiveRecord::Schema.define(version: 20180729020355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20180729012900) do
     t.integer "player_id"
     t.date "skillsTestDate"
     t.float "twentyYardShuttle"
-    t.float "thirtyYardSpring"
+    t.float "thirtyYardSprint"
     t.float "verticalLeap"
     t.index ["player_id"], name: "index_player_ball_skills_on_player_id"
   end
